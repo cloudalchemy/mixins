@@ -65,25 +65,19 @@ title: $mixin
 ---
 
 EOF
-	if [ -s "$dir/alerts.yaml" ]; then
-		echo -e "# Alerts\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/alerts.yaml yaml)\n" >> $file
-	fi
-	if [ -s "$dir/rules.yaml" ]; then
-		echo -e "# Recording rules\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/rules.yaml yaml)\n" >> $file
-	fi
-	if [ -s "$dir/dashboards.yaml" ]; then
-		echo -e "# Dashboards\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/dashboards.yaml yaml)\n" >> $file
-	fi
 	name=${mixin%.*}
-
 	echo -e "\n## $name\n" >> $INDEXFILE
-	if [ -s "$dir/alerts.yaml" ]; then
+
+	if [ -s "$dir/alerts.yaml" ] && [ "$(stat -c%s "$dir/alerts.yaml")" -gt 20 ]; then
+		echo -e "# Alerts\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/alerts.yaml yaml)\n" >> $file
 		echo "- [Alerts](/$name#alerts)" >> $INDEXFILE
 	fi
-	if [ -s "$dir/rules.yaml" ]; then
+	if [ -s "$dir/rules.yaml" ] && [ "$(stat -c%s "$dir/rules.yaml")" -gt 20 ]; then
+		echo -e "# Recording rules\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/rules.yaml yaml)\n" >> $file
 		echo "- [Recording Rules](/$name#rules)" >> $INDEXFILE
 	fi
 	if [ -s "$dir/dashboards.yaml" ]; then
+		echo -e "# Dashboards\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/dashboards.yaml yaml)\n" >> $file
 		echo "- [Dashboards](/$name#dashboards)" >> $INDEXFILE
 	fi
 done
