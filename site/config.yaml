@@ -16,3 +16,13 @@ params:
   project_name: Monitoring Mixins
 
   project_tagline: Combination of alerts, recording rules, and dashboards for prometheus exporters
+
+menu:
+  nav:
+    - name: Homepage
+      url: /
+      weight: 1
+    - name: About
+      url: "https://github.com/monitoring-mixins/docs"
+      weight: 2
+
