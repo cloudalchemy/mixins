@@ -1,15 +1,15 @@
 ---
 mixins:
-- name: kubernetes
-  source: "https://github.com/kubernetes-monitoring/kubernetes-mixin"
-  subdir: ""
-  text: "A set of Grafana dashboards and Prometheus alerts for Kubernetes."
 - name: "prometheus"
   source: "https://github.com/prometheus/prometheus"
   subdir: "documentation/prometheus-mixin"
 - name: node-exporter
   source: "https://github.com/prometheus/node_exporter"
   subdir: "docs/node-mixin"
+- name: kubernetes
+  source: "https://github.com/kubernetes-monitoring/kubernetes-mixin"
+  subdir: ""
+  text: "A set of Grafana dashboards and Prometheus alerts for Kubernetes."
 # Workaround needed: needs config.libsonnet file
 #- name: kube-state-metrics
 #  source: "https://github.com/kubernetes/kube-state-metrics"
