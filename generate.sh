@@ -19,8 +19,8 @@ download_mixin() {
 	fi
 	
 	mkdir -p $TOP/$MANIFESTS/$mixin/dashboards
-	jsonnet -J vendor -S -e 'std.manifestYamlDoc((import "mixin.libsonnet").prometheusAlerts)' > $TOP/$MANIFESTS/$mixin/alerts.yaml || :
-	jsonnet -J vendor -S -e 'std.manifestYamlDoc((import "mixin.libsonnet").prometheusRules)' > $TOP/$MANIFESTS/$mixin/rules.yaml || :
+	jsonnet -J vendor -S -e 'std.manifestYamlDoc((import "mixin.libsonnet").prometheusAlerts)' | gojsontoyaml > $TOP/$MANIFESTS/$mixin/alerts.yaml || :
+	jsonnet -J vendor -S -e 'std.manifestYamlDoc((import "mixin.libsonnet").prometheusRules)' | gojsontoyaml > $TOP/$MANIFESTS/$mixin/rules.yaml || :
 	jsonnet -J vendor -m $TOP/$MANIFESTS/$mixin/dashboards -e '(import "mixin.libsonnet").grafanaDashboards' || :
 }
 
