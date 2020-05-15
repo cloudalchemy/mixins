@@ -1,0 +1,37 @@
+---
+mixins:
+- name: kubernetes
+  source: "https://github.com/kubernetes-monitoring/kubernetes-mixin"
+  subdir: ""
+- name: "prometheus"
+  source: "https://github.com/prometheus/prometheus.git"
+  subdir: "documentation/prometheus-mixin"
+- name: node-exporter
+  source: "https://github.com/prometheus/node_exporter"
+  subdir: "docs/node-mixin"
+# TODO: find workaround for this snowflake -.-
+#- name: kube-state-metrics
+#  source: "https://github.com/kubernetes/kube-state-metrics"
+#  subdir: "jsonnet/kube-state-metrics-mixin"
+- name: etcd
+  source: "https://github.com/etcd-io/etcd"
+  subdir: "Documentation/etcd-mixin"
+- name: ceph
+  source: "https://github.com/ceph/ceph-mixins"
+  subdir: ""
+- name: gluster
+  source: "https://github.com/gluster/gluster-mixins"
+  subdir: ""
+- name: consul
+  source: "https://github.com/grafana/jsonnet-libs"
+  subdir: "consul-mixin"
+- name: jaeger
+  source: "https://github.com/grafana/jsonnet-libs"
+  subdir: "jaeger-mixin"
+- name: memcached
+  source: "https://github.com/grafana/jsonnet-libs"
+  subdir: "memcached-mixin"
+- name: sealed-secrets
+  source: "https://github.com/bitnami-labs/sealed-secrets"
+  subdir: "contrib/prometheus-mixin"
+

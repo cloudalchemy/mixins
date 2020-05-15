@@ -1,0 +1,17 @@
+---
+baseURL: "https://mixins.cloudalchemy.org/"
+languageCode: "en-us"
+title: "Monitoring Mixins"
+
+theme: 'cayman'
+
+# Google analytics
+# googleAnalytics: UA-123456789-1
+
+permalinks:
+  post: /:filename/
+
+params:
+  project_name: Monitoring Mixins
+
+  project_tagline: Combination of alerts, recording rules, and dashboards for prometheus exporters
