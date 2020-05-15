@@ -1,5 +1,5 @@
 ---
-#baseURL: "https://mixins.cloudalchemy.org/"
+# baseURL: "https://monitoring.mixins.dev/"
 baseURL: ""
 languageCode: "en-us"
 title: "Monitoring Mixins"
