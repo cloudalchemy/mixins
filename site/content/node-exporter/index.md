@@ -6,10 +6,6 @@ title: node-exporter
 
 Mixin available at [github.com/prometheus/node_exporter](https://github.com/prometheus/node_exporter/tree/master/docs/node-mixin)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/node-exporter/alerts.yaml yaml)

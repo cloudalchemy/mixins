@@ -6,10 +6,6 @@ title: etcd
 
 Mixin available at [github.com/etcd-io/etcd](https://github.com/etcd-io/etcd/tree/master/Documentation/etcd-mixin)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/etcd/alerts.yaml yaml)

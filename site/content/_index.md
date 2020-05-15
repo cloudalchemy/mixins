@@ -3,12 +3,6 @@ title: Prometheus monitoring mixins
 ---
 
 
-## kubernetes
-
-- [Alerts](/kubernetes#alerts)
-- [Recording Rules](/kubernetes#recording-rules)
-- [Dashboards](/kubernetes#dashboards)
-
 ## prometheus
 
 - [Alerts](/prometheus#alerts)
@@ -19,6 +13,12 @@ title: Prometheus monitoring mixins
 - [Alerts](/node-exporter#alerts)
 - [Recording Rules](/node-exporter#recording-rules)
 - [Dashboards](/node-exporter#dashboards)
+
+## kubernetes
+
+- [Alerts](/kubernetes#alerts)
+- [Recording Rules](/kubernetes#recording-rules)
+- [Dashboards](/kubernetes#dashboards)
 
 ## etcd
 

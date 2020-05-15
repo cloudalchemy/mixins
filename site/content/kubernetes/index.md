@@ -6,10 +6,6 @@ A set of Grafana dashboards and Prometheus alerts for Kubernetes.
 
 Mixin available at [github.com/kubernetes-monitoring/kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/kubernetes/alerts.yaml yaml)

@@ -6,10 +6,6 @@ title: prometheus
 
 Mixin available at [github.com/prometheus/prometheus](https://github.com/prometheus/prometheus/tree/master/documentation/prometheus-mixin)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/prometheus/alerts.yaml yaml)

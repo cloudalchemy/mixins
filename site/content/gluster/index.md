@@ -6,10 +6,6 @@ title: gluster
 
 Mixin available at [github.com/gluster/gluster-mixins](https://github.com/gluster/gluster-mixins)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/gluster/alerts.yaml yaml)

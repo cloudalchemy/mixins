@@ -6,10 +6,6 @@ title: ceph
 
 Mixin available at [github.com/ceph/ceph-mixins](https://github.com/ceph/ceph-mixins)
 
-- [Alerts](#alerts)
-- [Recording Rules](#recording-rules)
-- [Dashboards](#dashboards)
-
 # Alerts
 
 [embedmd]:# (../../../manifests/ceph/alerts.yaml yaml)
