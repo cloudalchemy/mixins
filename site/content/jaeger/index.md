@@ -126,10 +126,3 @@ groups:
       severity: warning
 ```
 
-# Recording rules
-
-[embedmd]:# (../../../manifests/jaeger/rules.yaml yaml)
-```yaml
-null
-```
-

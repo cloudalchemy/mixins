@@ -208,10 +208,3 @@ groups:
       severity: warning
 ```
 
-# Recording rules
-
-[embedmd]:# (../../../manifests/prometheus/rules.yaml yaml)
-```yaml
-null
-```
-

@@ -157,10 +157,3 @@ groups:
       severity: warning
 ```
 
-# Recording rules
-
-[embedmd]:# (../../../manifests/etcd/rules.yaml yaml)
-```yaml
-null
-```
-

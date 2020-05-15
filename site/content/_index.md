@@ -11,12 +11,10 @@ title: Generated monitoring mixins
 ## consul
 
 - [Alerts](/consul#alerts)
-- [Recording Rules](/consul#rules)
 
 ## etcd
 
 - [Alerts](/etcd#alerts)
-- [Recording Rules](/etcd#rules)
 
 ## gluster
 
@@ -26,7 +24,6 @@ title: Generated monitoring mixins
 ## jaeger
 
 - [Alerts](/jaeger#alerts)
-- [Recording Rules](/jaeger#rules)
 
 ## kubernetes
 
@@ -35,8 +32,6 @@ title: Generated monitoring mixins
 
 ## memcached
 
-- [Alerts](/memcached#alerts)
-- [Recording Rules](/memcached#rules)
 
 ## node-exporter
 
@@ -46,9 +41,7 @@ title: Generated monitoring mixins
 ## prometheus
 
 - [Alerts](/prometheus#alerts)
-- [Recording Rules](/prometheus#rules)
 
 ## sealed-secrets
 
 - [Alerts](/sealed-secrets#alerts)
-- [Recording Rules](/sealed-secrets#rules)

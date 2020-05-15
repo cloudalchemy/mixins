@@ -35,10 +35,3 @@ groups:
       severity: critical
 ```
 
-# Recording rules
-
-[embedmd]:# (../../../manifests/consul/rules.yaml yaml)
-```yaml
-null
-```
-

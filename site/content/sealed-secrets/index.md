@@ -19,10 +19,3 @@ groups:
       severity: warning
 ```
 
-# Recording rules
-
-[embedmd]:# (../../../manifests/sealed-secrets/rules.yaml yaml)
-```yaml
-groups: []
-```
-
