@@ -6,32 +6,39 @@ title: consul
 
 [embedmd]:# (../../../manifests/consul/alerts.yaml yaml)
 ```yaml
-"groups":
-- "name": "consul"
-  "rules":
-  - "alert": "ConsulUp"
-    "annotations":
-      "message": "Consul '{{ $labels.job }}' is not up."
-    "expr": |
+groups:
+- name: consul
+  rules:
+  - alert: ConsulUp
+    annotations:
+      message: Consul '{{ $labels.job }}' is not up.
+    expr: |
       consul_up != 1
-    "for": "1m"
-    "labels":
-      "severity": "critical"
-  - "alert": "ConsulMaster"
-    "annotations":
-      "message": "Consul '{{ $labels.job }}' has no master."
-    "expr": |
+    for: 1m
+    labels:
+      severity: critical
+  - alert: ConsulMaster
+    annotations:
+      message: Consul '{{ $labels.job }}' has no master.
+    expr: |
       consul_raft_leader != 1
-    "for": "1m"
-    "labels":
-      "severity": "critical"
-  - "alert": "ConsulPeers"
-    "annotations":
-      "message": "Consul '{{ $labels.job }}' does not have 3 peers."
-    "expr": |
+    for: 1m
+    labels:
+      severity: critical
+  - alert: ConsulPeers
+    annotations:
+      message: Consul '{{ $labels.job }}' does not have 3 peers.
+    expr: |
       consul_raft_peers != 3
-    "for": "10m"
-    "labels":
-      "severity": "critical"
+    for: 10m
+    labels:
+      severity: critical
+```
+
+# Recording rules
+
+[embedmd]:# (../../../manifests/consul/rules.yaml yaml)
+```yaml
+null
 ```
 

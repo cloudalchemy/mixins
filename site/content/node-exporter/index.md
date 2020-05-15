@@ -6,14 +6,15 @@ title: node-exporter
 
 [embedmd]:# (../../../manifests/node-exporter/alerts.yaml yaml)
 ```yaml
-"groups":
-- "name": "node-exporter"
-  "rules":
-  - "alert": "NodeFilesystemSpaceFillingUp"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left and is filling up."
-      "summary": "Filesystem is predicted to run out of space within the next 24 hours."
-    "expr": |
+groups:
+- name: node-exporter
+  rules:
+  - alert: NodeFilesystemSpaceFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left and is filling up.
+      summary: Filesystem is predicted to run out of space within the next 24 hours.
+    expr: |
       (
         node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 40
       and
@@ -21,14 +22,15 @@ title: node-exporter
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeFilesystemSpaceFillingUp"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left and is filling up fast."
-      "summary": "Filesystem is predicted to run out of space within the next 4 hours."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemSpaceFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left and is filling up fast.
+      summary: Filesystem is predicted to run out of space within the next 4 hours.
+    expr: |
       (
         node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 20
       and
@@ -36,40 +38,43 @@ title: node-exporter
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "critical"
-  - "alert": "NodeFilesystemAlmostOutOfSpace"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left."
-      "summary": "Filesystem has less than 5% space left."
-    "expr": |
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemAlmostOutOfSpace
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left.
+      summary: Filesystem has less than 5% space left.
+    expr: |
       (
         node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 5
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeFilesystemAlmostOutOfSpace"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available space left."
-      "summary": "Filesystem has less than 3% space left."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemAlmostOutOfSpace
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left.
+      summary: Filesystem has less than 3% space left.
+    expr: |
       (
         node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 3
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "critical"
-  - "alert": "NodeFilesystemFilesFillingUp"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left and is filling up."
-      "summary": "Filesystem is predicted to run out of inodes within the next 24 hours."
-    "expr": |
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemFilesFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left and is filling up.
+      summary: Filesystem is predicted to run out of inodes within the next 24 hours.
+    expr: |
       (
         node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 40
       and
@@ -77,14 +82,15 @@ title: node-exporter
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeFilesystemFilesFillingUp"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left and is filling up fast."
-      "summary": "Filesystem is predicted to run out of inodes within the next 4 hours."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemFilesFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left and is filling up fast.
+      summary: Filesystem is predicted to run out of inodes within the next 4 hours.
+    expr: |
       (
         node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 20
       and
@@ -92,74 +98,79 @@ title: node-exporter
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "critical"
-  - "alert": "NodeFilesystemAlmostOutOfFiles"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left."
-      "summary": "Filesystem has less than 5% inodes left."
-    "expr": |
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemAlmostOutOfFiles
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left.
+      summary: Filesystem has less than 5% inodes left.
+    expr: |
       (
         node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 5
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeFilesystemAlmostOutOfFiles"
-    "annotations":
-      "description": "Filesystem on {{ $labels.device }} at {{ $labels.instance }} has only {{ printf \"%.2f\" $value }}% available inodes left."
-      "summary": "Filesystem has less than 3% inodes left."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemAlmostOutOfFiles
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left.
+      summary: Filesystem has less than 3% inodes left.
+    expr: |
       (
         node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 3
       and
         node_filesystem_readonly{job="node",fstype!=""} == 0
       )
-    "for": "1h"
-    "labels":
-      "severity": "critical"
-  - "alert": "NodeNetworkReceiveErrs"
-    "annotations":
-      "description": "{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} receive errors in the last two minutes."
-      "summary": "Network interface is reporting many receive errors."
-    "expr": |
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeNetworkReceiveErrs
+    annotations:
+      description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered
+        {{ printf "%.0f" $value }} receive errors in the last two minutes.'
+      summary: Network interface is reporting many receive errors.
+    expr: |
       increase(node_network_receive_errs_total[2m]) > 10
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeNetworkTransmitErrs"
-    "annotations":
-      "description": "{{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} transmit errors in the last two minutes."
-      "summary": "Network interface is reporting many transmit errors."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeNetworkTransmitErrs
+    annotations:
+      description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered
+        {{ printf "%.0f" $value }} transmit errors in the last two minutes.'
+      summary: Network interface is reporting many transmit errors.
+    expr: |
       increase(node_network_transmit_errs_total[2m]) > 10
-    "for": "1h"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeHighNumberConntrackEntriesUsed"
-    "annotations":
-      "description": "{{ $value | humanizePercentage }} of conntrack entries are used."
-      "summary": "Number of conntrack are getting close to the limit."
-    "expr": |
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeHighNumberConntrackEntriesUsed
+    annotations:
+      description: '{{ $value | humanizePercentage }} of conntrack entries are used.'
+      summary: Number of conntrack are getting close to the limit.
+    expr: |
       (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeTextFileCollectorScrapeError"
-    "annotations":
-      "description": "Node Exporter text file collector failed to scrape."
-      "summary": "Node Exporter text file collector failed to scrape."
-    "expr": |
+    labels:
+      severity: warning
+  - alert: NodeTextFileCollectorScrapeError
+    annotations:
+      description: Node Exporter text file collector failed to scrape.
+      summary: Node Exporter text file collector failed to scrape.
+    expr: |
       node_textfile_scrape_error{job="node"} == 1
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeClockSkewDetected"
-    "annotations":
-      "message": "Clock on {{ $labels.instance }} is out of sync by more than 300s. Ensure NTP is configured correctly on this host."
-      "summary": "Clock skew detected."
-    "expr": |
+    labels:
+      severity: warning
+  - alert: NodeClockSkewDetected
+    annotations:
+      message: Clock on {{ $labels.instance }} is out of sync by more than 300s. Ensure
+        NTP is configured correctly on this host.
+      summary: Clock skew detected.
+    expr: |
       (
         node_timex_offset_seconds > 0.05
       and
@@ -171,81 +182,82 @@ title: node-exporter
       and
         deriv(node_timex_offset_seconds[5m]) <= 0
       )
-    "for": "10m"
-    "labels":
-      "severity": "warning"
-  - "alert": "NodeClockNotSynchronising"
-    "annotations":
-      "message": "Clock on {{ $labels.instance }} is not synchronising. Ensure NTP is configured on this host."
-      "summary": "Clock not synchronising."
-    "expr": |
+    for: 10m
+    labels:
+      severity: warning
+  - alert: NodeClockNotSynchronising
+    annotations:
+      message: Clock on {{ $labels.instance }} is not synchronising. Ensure NTP is
+        configured on this host.
+      summary: Clock not synchronising.
+    expr: |
       min_over_time(node_timex_sync_status[5m]) == 0
-    "for": "10m"
-    "labels":
-      "severity": "warning"
+    for: 10m
+    labels:
+      severity: warning
 ```
 
 # Recording rules
 
 [embedmd]:# (../../../manifests/node-exporter/rules.yaml yaml)
 ```yaml
-"groups":
-- "name": "node-exporter.rules"
-  "rules":
-  - "expr": |
+groups:
+- name: node-exporter.rules
+  rules:
+  - expr: |
       count without (cpu) (
         count without (mode) (
           node_cpu_seconds_total{job="node"}
         )
       )
-    "record": "instance:node_num_cpu:sum"
-  - "expr": |
+    record: instance:node_num_cpu:sum
+  - expr: |
       1 - avg without (cpu, mode) (
         rate(node_cpu_seconds_total{job="node", mode="idle"}[1m])
       )
-    "record": "instance:node_cpu_utilisation:rate1m"
-  - "expr": |
+    record: instance:node_cpu_utilisation:rate1m
+  - expr: |
       (
         node_load1{job="node"}
       /
         instance:node_num_cpu:sum{job="node"}
       )
-    "record": "instance:node_load1_per_cpu:ratio"
-  - "expr": |
+    record: instance:node_load1_per_cpu:ratio
+  - expr: |
       1 - (
         node_memory_MemAvailable_bytes{job="node"}
       /
         node_memory_MemTotal_bytes{job="node"}
       )
-    "record": "instance:node_memory_utilisation:ratio"
-  - "expr": |
+    record: instance:node_memory_utilisation:ratio
+  - expr: |
       rate(node_vmstat_pgmajfault{job="node"}[1m])
-    "record": "instance:node_vmstat_pgmajfault:rate1m"
-  - "expr": |
+    record: instance:node_vmstat_pgmajfault:rate1m
+  - expr: |
       rate(node_disk_io_time_seconds_total{job="node", device!=""}[1m])
-    "record": "instance_device:node_disk_io_time_seconds:rate1m"
-  - "expr": |
+    record: instance_device:node_disk_io_time_seconds:rate1m
+  - expr: |
       rate(node_disk_io_time_weighted_seconds_total{job="node", device!=""}[1m])
-    "record": "instance_device:node_disk_io_time_weighted_seconds:rate1m"
-  - "expr": |
+    record: instance_device:node_disk_io_time_weighted_seconds:rate1m
+  - expr: |
       sum without (device) (
         rate(node_network_receive_bytes_total{job="node", device!="lo"}[1m])
       )
-    "record": "instance:node_network_receive_bytes_excluding_lo:rate1m"
-  - "expr": |
+    record: instance:node_network_receive_bytes_excluding_lo:rate1m
+  - expr: |
       sum without (device) (
         rate(node_network_transmit_bytes_total{job="node", device!="lo"}[1m])
       )
-    "record": "instance:node_network_transmit_bytes_excluding_lo:rate1m"
-  - "expr": |
+    record: instance:node_network_transmit_bytes_excluding_lo:rate1m
+  - expr: |
       sum without (device) (
         rate(node_network_receive_drop_total{job="node", device!="lo"}[1m])
       )
-    "record": "instance:node_network_receive_drop_excluding_lo:rate1m"
-  - "expr": |
+    record: instance:node_network_receive_drop_excluding_lo:rate1m
+  - expr: |
       sum without (device) (
         rate(node_network_transmit_drop_total{job="node", device!="lo"}[1m])
       )
-    "record": "instance:node_network_transmit_drop_excluding_lo:rate1m"
+    record: instance:node_network_transmit_drop_excluding_lo:rate1m
 ```
 
