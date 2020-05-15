@@ -2,6 +2,14 @@
 title: consul
 ---
 
+
+
+Mixin available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/consul-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/consul/alerts.yaml yaml)
@@ -35,3 +43,8 @@ groups:
       severity: critical
 ```
 
+# Dashboards
+Following dashboards are generated from mixins and hosted on github:
+
+
+- [consul-overview](https://github.com/cloudalchemy/mixins/blob/master/manifests/consul/dashboards/consul-overview.json)

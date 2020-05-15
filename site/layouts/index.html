@@ -1,6 +1,9 @@
 {{ define "main" }}
     <main aria-role="main">
       <header class="homepage-header">
+        <a href="https://prometheus.io">
+          <img src="/prometheus-logo.png" alt="Prometheus logo" style="max-width: 50%; display: block; margin: auto; clear: both;">
+        </a>
         <h1>{{.Title}}</h1>
         {{ with .Params.subtitle }}
         <span class="subtitle">{{.}}</span>

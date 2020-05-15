@@ -2,6 +2,14 @@
 title: jaeger
 ---
 
+
+
+Mixin available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/jaeger-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/jaeger/alerts.yaml yaml)

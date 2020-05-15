@@ -2,6 +2,14 @@
 title: sealed-secrets
 ---
 
+
+
+Mixin available at [github.com/bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets/tree/master/contrib/prometheus-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/sealed-secrets/alerts.yaml yaml)
@@ -19,3 +27,8 @@ groups:
       severity: warning
 ```
 
+# Dashboards
+Following dashboards are generated from mixins and hosted on github:
+
+
+- [sealed-secrets-controller](https://github.com/cloudalchemy/mixins/blob/master/manifests/sealed-secrets/dashboards/sealed-secrets-controller.json)

@@ -2,6 +2,14 @@
 title: kubernetes
 ---
 
+A set of Grafana dashboards and Prometheus alerts for Kubernetes.
+
+Mixin available at [github.com/kubernetes-monitoring/kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/kubernetes/alerts.yaml yaml)
@@ -1239,3 +1247,25 @@ groups:
     record: node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 ```
 
+# Dashboards
+Following dashboards are generated from mixins and hosted on github:
+
+
+- [apiserver](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/apiserver.json)
+- [cluster-total](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/cluster-total.json)
+- [controller-manager](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/controller-manager.json)
+- [k8s-resources-cluster](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-cluster.json)
+- [k8s-resources-namespace](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-namespace.json)
+- [k8s-resources-node](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-node.json)
+- [k8s-resources-pod](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-pod.json)
+- [k8s-resources-workload](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-workload.json)
+- [k8s-resources-workloads-namespace](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/k8s-resources-workloads-namespace.json)
+- [kubelet](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/kubelet.json)
+- [namespace-by-pod](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/namespace-by-pod.json)
+- [namespace-by-workload](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/namespace-by-workload.json)
+- [persistentvolumesusage](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/persistentvolumesusage.json)
+- [pod-total](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/pod-total.json)
+- [proxy](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/proxy.json)
+- [scheduler](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/scheduler.json)
+- [statefulset](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/statefulset.json)
+- [workload-total](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/dashboards/workload-total.json)

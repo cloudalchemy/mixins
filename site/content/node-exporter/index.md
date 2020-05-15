@@ -2,6 +2,14 @@
 title: node-exporter
 ---
 
+
+
+Mixin available at [github.com/prometheus/node_exporter](https://github.com/prometheus/node_exporter/tree/master/docs/node-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/node-exporter/alerts.yaml yaml)
@@ -261,3 +269,10 @@ groups:
     record: instance:node_network_transmit_drop_excluding_lo:rate1m
 ```
 
+# Dashboards
+Following dashboards are generated from mixins and hosted on github:
+
+
+- [node-cluster-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/node-cluster-rsrc-use.json)
+- [node-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/node-rsrc-use.json)
+- [nodes](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/nodes.json)

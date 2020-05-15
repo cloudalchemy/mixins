@@ -2,6 +2,14 @@
 title: prometheus
 ---
 
+
+
+Mixin available at [github.com/prometheus/prometheus](https://github.com/prometheus/prometheus/tree/master/documentation/prometheus-mixin)
+
+- [Alerts](#alerts)
+- [Recording Rules](#recording-rules)
+- [Dashboards](#dashboards)
+
 # Alerts
 
 [embedmd]:# (../../../manifests/prometheus/alerts.yaml yaml)
@@ -208,3 +216,9 @@ groups:
       severity: warning
 ```
 
+# Dashboards
+Following dashboards are generated from mixins and hosted on github:
+
+
+- [prometheus](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/dashboards/prometheus.json)
+- [prometheus-remote-write](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/dashboards/prometheus-remote-write.json)
