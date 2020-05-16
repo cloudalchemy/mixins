@@ -32,13 +32,7 @@ mkdir -p $TMPDIR
 
 # Create top-level index.md header
 INDEXFILE="site/content/_index.md"
-touch $INDEXFILE
-cat <<EOF > $INDEXFILE
----
-title: Prometheus monitoring mixins
----
-
-EOF
+cp site/templates/_index_header.md.tmpl "$INDEXFILE"
 
 # Generate manifests
 cat mixins.yaml | gojsontoyaml -yamltojson > $TMPDIR/mixins.json
