@@ -20,6 +20,10 @@ title: Prometheus monitoring mixins
 - [Recording Rules](/kubernetes#recording-rules)
 - [Dashboards](/kubernetes#dashboards)
 
+## kube-state-metrics
+
+- [Alerts](/kube-state-metrics#alerts)
+
 ## etcd
 
 - [Alerts](/etcd#alerts)
