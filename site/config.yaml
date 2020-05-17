@@ -32,7 +32,7 @@ menu:
     - name: About mixins
       url: "https://github.com/monitoring-mixins/docs"
       weight: 2
-    - name: "<i class='fab fa-github'></i>"
+    - name: "GitHub"
       url: "https://github.com/cloudalchemy/mixin"
       weight: 3
 
