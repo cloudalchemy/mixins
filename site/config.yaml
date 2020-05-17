@@ -33,6 +33,6 @@ menu:
       url: "https://github.com/monitoring-mixins/docs"
       weight: 2
     - name: "GitHub"
-      url: "https://github.com/cloudalchemy/mixin"
+      url: "https://github.com/cloudalchemy/mixins"
       weight: 3
 
