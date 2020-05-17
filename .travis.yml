@@ -1,0 +1,10 @@
+---
+os: linux
+dist: xenial
+language: golang
+install:
+  - go get github.com/brancz/gojsontoyaml
+  - go get github.com/google/go-jsonnet/cmd/jsonnet
+  - go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
+script:
+  - ./generate.sh && git diff --exit-code
