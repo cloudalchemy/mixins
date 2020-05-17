@@ -26,13 +26,11 @@ download_mixin() {
 	cd "$curdir"
 }
 
-# Prepare env
-rm -rf site/content/* $MANIFESTS $TMPDIR
+# remove generated manifests and temporary directory
+rm -rf $MANIFESTS $TMPDIR
+# remove generated site content
+find site/content/ ! -name '_index.md' -type f -exec rm -rf {} +
 mkdir -p $TMPDIR
-
-# Create top-level index.md header
-INDEXFILE="site/content/_index.md"
-cp site/templates/_index_header.md.tmpl "$INDEXFILE"
 
 # Generate manifests
 cat mixins.yaml | gojsontoyaml -yamltojson > $TMPDIR/mixins.json
@@ -48,7 +46,7 @@ for mixin in $(cat $TMPDIR/mixins.json | jq -r '.mixins[].name'); do
 	#set -u
 
 	mkdir -p "site/content/${mixin}"
-	file="site/content/${mixin}/index.md"
+	file="site/content/${mixin}/_index.md"
 	# Create header
 	if [ -n "$subdir" ]; then
 		location="$repo/tree/master/$subdir"
@@ -62,29 +60,52 @@ title: $mixin
 
 $text
 
-Mixin available at [${repo#*//}]($location)
+{{< panel style="primary" title="Jsonnet source" >}}
+Mixin jsonnet code is available at [${repo#*//}]($location)
+{{< /panel >}}
 
 EOF
-	echo -e "\n## $mixin\n" >> $INDEXFILE
-	
 	dir="$TOP/$MANIFESTS/$mixin"
+	# Alerts
 	if [ -s "$dir/alerts.yaml" ] && [ "$(stat -c%s "$dir/alerts.yaml")" -gt 20 ]; then
-		echo -e "# Alerts\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/alerts.yaml yaml)\n" >> $file
-		echo "- [Alerts](/$mixin#alerts)" >> $INDEXFILE
+		echo -e "## Alerts\n" >> $file
+		echo -e '{{< panel style="info" >}}' >> $file
+		echo -e "Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/$mixin/alerts.yaml)." >> $file
+		echo -e '{{< /panel >}}\n' >> $file
+
+		for i in $(cat $dir/alerts.yaml | gojsontoyaml -yamltojson | jq -cr '[.groups[].rules] | flatten | .[] | @base64'); do
+			var=$(echo "$i" | base64 --decode | gojsontoyaml);
+			name=$(echo -e "$var" | grep 'alert' | awk -F ': ' '{print $2}')
+			echo -e "### ${name}\n" >> $file
+			echo -e '{{< code lang="yaml" >}}' >> $file
+			echo -e "$var" >> $file
+			echo -e '{{< /code >}}\n ' >> $file
+		done
 	fi
+
+	# Recording Rules
 	if [ -s "$dir/rules.yaml" ] && [ "$(stat -c%s "$dir/rules.yaml")" -gt 20 ]; then
-		echo -e "# Recording rules\n\n[embedmd]:# (../../../$MANIFESTS/$mixin/rules.yaml yaml)\n" >> $file
-		echo "- [Recording Rules](/$mixin#recording-rules)" >> $INDEXFILE
+		echo -e "## Recording rules\n" >> $file
+		echo -e '{{< panel style="info" >}}' >> $file
+		echo -e "Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/$mixin/rules.yaml)." >> $file
+		echo -e '{{< /panel >}}\n' >> $file
+		
+		for i in $(cat $dir/rules.yaml | gojsontoyaml -yamltojson | jq -cr '[.groups[].rules] | flatten | .[] | @base64'); do
+			var=$(echo "$i" | base64 --decode | gojsontoyaml);
+			name=$(echo -e "$var" | grep 'record' | awk -F ': ' '{print $2}')
+			echo -e "### ${name}\n" >> $file
+			echo -e '{{< code lang="yaml" >}}' >> $file
+			echo -e "$var" >> $file
+			echo -e '{{< /code >}}\n ' >> $file
+		done
 	fi
+
+	# Dashboards
 	if [ "$(ls -A "$dir/dashboards")" ]; then
-		echo -e "# Dashboards\nFollowing dashboards are generated from mixins and hosted on github:\n\n" >> $file
+		echo -e "## Dashboards\nFollowing dashboards are generated from mixins and hosted on github:\n\n" >> $file
 		for dashboard in $dir/dashboards/*.json; do
 			d=$(basename $dashboard)
 			echo "- [${d%.*}](https://github.com/cloudalchemy/mixins/blob/master/manifests/$mixin/dashboards/$d)" >> $file
 		done
-		echo "- [Dashboards](/$mixin#dashboards)" >> $INDEXFILE
 	fi
 done
-
-# Embed alerts and rules into site files
-embedmd -w $(find site/content/ -name "*.md")

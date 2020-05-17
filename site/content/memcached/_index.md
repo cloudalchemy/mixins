@@ -4,9 +4,11 @@ title: memcached
 
 
 
-Mixin available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/memcached-mixin)
+{{< panel style="primary" title="Jsonnet source" >}}
+Mixin jsonnet code is available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/memcached-mixin)
+{{< /panel >}}
 
-# Dashboards
+## Dashboards
 Following dashboards are generated from mixins and hosted on github:
 
 
