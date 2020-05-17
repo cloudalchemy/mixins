@@ -1,6 +1,6 @@
 ---
-# baseURL: "https://monitoring.mixins.dev/"
-baseURL: ""
+baseURL: "https://monitoring.mixins.dev/"
+# baseURL: ""
 languageCode: "en-us"
 title: "Monitoring Mixins"
 
