@@ -47,7 +47,6 @@ mixins:
 - name: sealed-secrets
   source: "https://github.com/bitnami-labs/sealed-secrets"
   subdir: "contrib/prometheus-mixin"
-# Workaround needed: jsonnetfile.json is not with other jsonnet files
-#- name: thanos
-#  source: "https://github.com/thanos-io/thanos"
-#  subdir: "mixin"
+- name: thanos
+  source: "https://github.com/thanos-io/thanos"
+  subdir: "mixin"
