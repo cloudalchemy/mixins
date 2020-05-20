@@ -26,6 +26,44 @@ download_mixin() {
 	cd "$curdir"
 }
 
+parse_rules() {
+	local source="$1"
+	local type="$2"
+	for group in $(echo "$source" | jq -cr '.groups[].name'); do
+		echo -e "### ${group}\n"
+		for rule in $(echo "$source" | jq -cr ".groups[] | select(.name == \"${group}\") | .rules[] | @base64"); do
+			var=$(echo "$rule" | base64 --decode | gojsontoyaml);
+			name=$(echo -e "$var" | grep "$type" | awk -F ': ' '{print $2}')
+			echo -e "##### ${name}\n"
+			echo -e '{{< code lang="yaml" >}}'
+			echo -e "$var"
+			echo -e '{{< /code >}}\n '
+		done
+	done
+}
+
+mixin_header() {
+	local name="$1"
+	local repo="$2"
+	local url="$3"
+	local description="$4"
+
+	cat << EOF
+---
+title: $name
+---
+
+## Overview
+
+$description
+
+{{< panel style="primary" title="Jsonnet source" >}}
+Mixin jsonnet code is available at [${repo#*//}]($url)
+{{< /panel >}}
+
+EOF
+}
+
 # remove generated manifests and temporary directory
 rm -rf $MANIFESTS $TMPDIR
 # remove generated site content
@@ -53,18 +91,8 @@ for mixin in $(cat $TMPDIR/mixins.json | jq -r '.mixins[].name'); do
 	else
 		location="$repo"
 	fi
-	cat << EOF > $file
----
-title: $mixin
----
+	mixin_header "$mixin" "$repo" "$location" "$text" > "$file"
 
-$text
-
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [${repo#*//}]($location)
-{{< /panel >}}
-
-EOF
 	dir="$TOP/$MANIFESTS/$mixin"
 	# Alerts
 	if [ -s "$dir/alerts.yaml" ] && [ "$(stat -c%s "$dir/alerts.yaml")" -gt 20 ]; then
@@ -73,14 +101,7 @@ EOF
 		echo -e "Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/$mixin/alerts.yaml)." >> $file
 		echo -e '{{< /panel >}}\n' >> $file
 
-		for i in $(cat $dir/alerts.yaml | gojsontoyaml -yamltojson | jq -cr '[.groups[].rules] | flatten | .[] | @base64'); do
-			var=$(echo "$i" | base64 --decode | gojsontoyaml);
-			name=$(echo -e "$var" | grep 'alert' | awk -F ': ' '{print $2}')
-			echo -e "### ${name}\n" >> $file
-			echo -e '{{< code lang="yaml" >}}' >> $file
-			echo -e "$var" >> $file
-			echo -e '{{< /code >}}\n ' >> $file
-		done
+		parse_rules "$(gojsontoyaml -yamltojson < "$dir/alerts.yaml")" "alert" >> "$file"
 	fi
 
 	# Recording Rules
@@ -89,15 +110,8 @@ EOF
 		echo -e '{{< panel style="info" >}}' >> $file
 		echo -e "Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/$mixin/rules.yaml)." >> $file
 		echo -e '{{< /panel >}}\n' >> $file
-		
-		for i in $(cat $dir/rules.yaml | gojsontoyaml -yamltojson | jq -cr '[.groups[].rules] | flatten | .[] | @base64'); do
-			var=$(echo "$i" | base64 --decode | gojsontoyaml);
-			name=$(echo -e "$var" | grep 'record' | awk -F ': ' '{print $2}')
-			echo -e "### ${name}\n" >> $file
-			echo -e '{{< code lang="yaml" >}}' >> $file
-			echo -e "$var" >> $file
-			echo -e '{{< /code >}}\n ' >> $file
-		done
+
+		parse_rules "$(gojsontoyaml -yamltojson < "$dir/rules.yaml")" "record" >> "$file"
 	fi
 
 	# Dashboards
