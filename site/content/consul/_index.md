@@ -2,6 +2,8 @@
 title: consul
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/grafana/jsonnet-libs](https://git
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/consul/alerts.yaml).
 {{< /panel >}}
 
-### ConsulUp
+### consul
+
+##### ConsulUp
 
 {{< code lang="yaml" >}}
 alert: ConsulUp
@@ -27,7 +31,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### ConsulMaster
+##### ConsulMaster
 
 {{< code lang="yaml" >}}
 alert: ConsulMaster
@@ -40,7 +44,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### ConsulPeers
+##### ConsulPeers
 
 {{< code lang="yaml" >}}
 alert: ConsulPeers

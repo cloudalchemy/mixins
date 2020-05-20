@@ -2,6 +2,8 @@
 title: prometheus
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/prometheus/prometheus](https://gi
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/alerts.yaml).
 {{< /panel >}}
 
-### PrometheusBadConfig
+### prometheus
+
+##### PrometheusBadConfig
 
 {{< code lang="yaml" >}}
 alert: PrometheusBadConfig
@@ -30,7 +34,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### PrometheusNotificationQueueRunningFull
+##### PrometheusNotificationQueueRunningFull
 Prometheus alert notification queue predicted to run full in less than
 
 {{< code lang="yaml" >}}
@@ -53,7 +57,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusErrorSendingAlertsToSomeAlertmanagers
+##### PrometheusErrorSendingAlertsToSomeAlertmanagers
 '{{ printf "%.1f" $value }}% errors while sending alerts from Prometheus
 
 Prometheus has encountered more than 1% errors sending alerts to a specific
@@ -78,7 +82,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusErrorSendingAlertsToAnyAlertmanager
+##### PrometheusErrorSendingAlertsToAnyAlertmanager
 '{{ printf "%.1f" $value }}% minimum errors while sending alerts from
 Prometheus encounters more than 3% errors sending alerts to any Alertmanager.
 
@@ -101,7 +105,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### PrometheusNotConnectedToAlertmanagers
+##### PrometheusNotConnectedToAlertmanagers
 
 {{< code lang="yaml" >}}
 alert: PrometheusNotConnectedToAlertmanagers
@@ -117,7 +121,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusTSDBReloadsFailing
+##### PrometheusTSDBReloadsFailing
 
 {{< code lang="yaml" >}}
 alert: PrometheusTSDBReloadsFailing
@@ -132,7 +136,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusTSDBCompactionsFailing
+##### PrometheusTSDBCompactionsFailing
 
 {{< code lang="yaml" >}}
 alert: PrometheusTSDBCompactionsFailing
@@ -147,7 +151,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusNotIngestingSamples
+##### PrometheusNotIngestingSamples
 
 {{< code lang="yaml" >}}
 alert: PrometheusNotIngestingSamples
@@ -161,7 +165,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusDuplicateTimestamps
+##### PrometheusDuplicateTimestamps
 
 {{< code lang="yaml" >}}
 alert: PrometheusDuplicateTimestamps
@@ -176,7 +180,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusOutOfOrderTimestamps
+##### PrometheusOutOfOrderTimestamps
 
 {{< code lang="yaml" >}}
 alert: PrometheusOutOfOrderTimestamps
@@ -191,7 +195,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusRemoteStorageFailures
+##### PrometheusRemoteStorageFailures
 
 {{< code lang="yaml" >}}
 alert: PrometheusRemoteStorageFailures
@@ -216,7 +220,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### PrometheusRemoteWriteBehind
+##### PrometheusRemoteWriteBehind
 
 {{< code lang="yaml" >}}
 alert: PrometheusRemoteWriteBehind
@@ -238,7 +242,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### PrometheusRemoteWriteDesiredShards
+##### PrometheusRemoteWriteDesiredShards
 
 {{< code lang="yaml" >}}
 alert: PrometheusRemoteWriteDesiredShards
@@ -262,7 +266,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### PrometheusRuleFailures
+##### PrometheusRuleFailures
 
 {{< code lang="yaml" >}}
 alert: PrometheusRuleFailures
@@ -277,7 +281,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### PrometheusMissingRuleEvaluations
+##### PrometheusMissingRuleEvaluations
 
 {{< code lang="yaml" >}}
 alert: PrometheusMissingRuleEvaluations

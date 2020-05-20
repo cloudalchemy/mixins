@@ -2,6 +2,8 @@
 title: kubernetes
 ---
 
+## Overview
+
 A set of Grafana dashboards and Prometheus alerts for Kubernetes.
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/kubernetes-monitoring/kubernetes-
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/alerts.yaml).
 {{< /panel >}}
 
-### KubePodCrashLooping
+### kubernetes-apps
+
+##### KubePodCrashLooping
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodcrashlooping
 
 {{< code lang="yaml" >}}
@@ -30,7 +34,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubePodNotReady
+##### KubePodNotReady
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodnotready
 
 {{< code lang="yaml" >}}
@@ -52,7 +56,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeDeploymentGenerationMismatch
+##### KubeDeploymentGenerationMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentgenerationmismatch
 
 {{< code lang="yaml" >}}
@@ -71,7 +75,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeDeploymentReplicasMismatch
+##### KubeDeploymentReplicasMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentreplicasmismatch
 
 {{< code lang="yaml" >}}
@@ -95,7 +99,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeStatefulSetReplicasMismatch
+##### KubeStatefulSetReplicasMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetreplicasmismatch
 
 {{< code lang="yaml" >}}
@@ -119,7 +123,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeStatefulSetGenerationMismatch
+##### KubeStatefulSetGenerationMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetgenerationmismatch
 
 {{< code lang="yaml" >}}
@@ -138,7 +142,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeStatefulSetUpdateNotRolledOut
+##### KubeStatefulSetUpdateNotRolledOut
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetupdatenotrolledout
 
 {{< code lang="yaml" >}}
@@ -164,7 +168,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeDaemonSetRolloutStuck
+##### KubeDaemonSetRolloutStuck
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetrolloutstuck
 
 {{< code lang="yaml" >}}
@@ -182,7 +186,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeContainerWaiting
+##### KubeContainerWaiting
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontainerwaiting
 
 {{< code lang="yaml" >}}
@@ -198,7 +202,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeDaemonSetNotScheduled
+##### KubeDaemonSetNotScheduled
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetnotscheduled
 
 {{< code lang="yaml" >}}
@@ -216,7 +220,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeDaemonSetMisScheduled
+##### KubeDaemonSetMisScheduled
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetmisscheduled
 
 {{< code lang="yaml" >}}
@@ -232,7 +236,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeCronJobRunning
+##### KubeCronJobRunning
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecronjobrunning
 
 {{< code lang="yaml" >}}
@@ -248,7 +252,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeJobCompletion
+##### KubeJobCompletion
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobcompletion
 
 {{< code lang="yaml" >}}
@@ -264,7 +268,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeJobFailed
+##### KubeJobFailed
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobfailed
 
 {{< code lang="yaml" >}}
@@ -279,7 +283,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeHpaReplicasMismatch
+##### KubeHpaReplicasMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpareplicasmismatch
 
 {{< code lang="yaml" >}}
@@ -299,7 +303,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeHpaMaxedOut
+##### KubeHpaMaxedOut
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpamaxedout
 
 {{< code lang="yaml" >}}
@@ -317,7 +321,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeCPUOvercommit
+### kubernetes-resources
+
+##### KubeCPUOvercommit
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuovercommit
 
 {{< code lang="yaml" >}}
@@ -337,7 +343,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeMemoryOvercommit
+##### KubeMemoryOvercommit
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryovercommit
 
 {{< code lang="yaml" >}}
@@ -359,7 +365,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeCPUQuotaOvercommit
+##### KubeCPUQuotaOvercommit
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuquotaovercommit
 
 {{< code lang="yaml" >}}
@@ -377,7 +383,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeMemoryQuotaOvercommit
+##### KubeMemoryQuotaOvercommit
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryquotaovercommit
 
 {{< code lang="yaml" >}}
@@ -395,7 +401,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeQuotaExceeded
+##### KubeQuotaExceeded
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaexceeded
 
 {{< code lang="yaml" >}}
@@ -414,7 +420,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CPUThrottlingHigh
+##### CPUThrottlingHigh
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-cputhrottlinghigh
 
 {{< code lang="yaml" >}}
@@ -433,7 +439,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubePersistentVolumeFillingUp
+### kubernetes-storage
+
+##### KubePersistentVolumeFillingUp
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
 
 {{< code lang="yaml" >}}
@@ -452,7 +460,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubePersistentVolumeFillingUp
+##### KubePersistentVolumeFillingUp
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
 
 {{< code lang="yaml" >}}
@@ -475,7 +483,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubePersistentVolumeErrors
+##### KubePersistentVolumeErrors
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeerrors
 
 {{< code lang="yaml" >}}
@@ -491,7 +499,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubeVersionMismatch
+### kubernetes-system
+
+##### KubeVersionMismatch
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeversionmismatch
 
 {{< code lang="yaml" >}}
@@ -507,7 +517,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeClientErrors
+##### KubeClientErrors
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclienterrors
 
 {{< code lang="yaml" >}}
@@ -526,7 +536,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeAPIErrorBudgetBurn
+### kube-apiserver-slos
+
+##### KubeAPIErrorBudgetBurn
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
 
 {{< code lang="yaml" >}}
@@ -540,10 +552,12 @@ expr: |
   sum(apiserver_request:burnrate5m) > (14.40 * 0.01000)
 for: 2m
 labels:
+  long: 1h
   severity: critical
+  short: 5m
 {{< /code >}}
  
-### KubeAPIErrorBudgetBurn
+##### KubeAPIErrorBudgetBurn
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
 
 {{< code lang="yaml" >}}
@@ -557,10 +571,12 @@ expr: |
   sum(apiserver_request:burnrate30m) > (6.00 * 0.01000)
 for: 15m
 labels:
+  long: 6h
   severity: critical
+  short: 30m
 {{< /code >}}
  
-### KubeAPIErrorBudgetBurn
+##### KubeAPIErrorBudgetBurn
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
 
 {{< code lang="yaml" >}}
@@ -574,10 +590,12 @@ expr: |
   sum(apiserver_request:burnrate2h) > (3.00 * 0.01000)
 for: 1h
 labels:
+  long: 1d
   severity: warning
+  short: 2h
 {{< /code >}}
  
-### KubeAPIErrorBudgetBurn
+##### KubeAPIErrorBudgetBurn
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
 
 {{< code lang="yaml" >}}
@@ -591,10 +609,14 @@ expr: |
   sum(apiserver_request:burnrate6h) > (1.00 * 0.01000)
 for: 3h
 labels:
+  long: 3d
   severity: warning
+  short: 6h
 {{< /code >}}
  
-### KubeAPILatencyHigh
+### kubernetes-system-apiserver
+
+##### KubeAPILatencyHigh
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapilatencyhigh
 
 {{< code lang="yaml" >}}
@@ -624,7 +646,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeAPIErrorsHigh
+##### KubeAPIErrorsHigh
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorshigh
 
 {{< code lang="yaml" >}}
@@ -643,7 +665,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeClientCertificateExpiration
+##### KubeClientCertificateExpiration
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
 
 {{< code lang="yaml" >}}
@@ -658,7 +680,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeClientCertificateExpiration
+##### KubeClientCertificateExpiration
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
 
 {{< code lang="yaml" >}}
@@ -673,7 +695,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### AggregatedAPIErrors
+##### AggregatedAPIErrors
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapierrors
 
 {{< code lang="yaml" >}}
@@ -689,7 +711,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### AggregatedAPIDown
+##### AggregatedAPIDown
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
 
 {{< code lang="yaml" >}}
@@ -705,7 +727,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeAPIDown
+##### KubeAPIDown
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapidown
 
 {{< code lang="yaml" >}}
@@ -720,7 +742,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubeNodeNotReady
+### kubernetes-system-kubelet
+
+##### KubeNodeNotReady
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodenotready
 
 {{< code lang="yaml" >}}
@@ -735,7 +759,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeNodeUnreachable
+##### KubeNodeUnreachable
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodeunreachable
 
 {{< code lang="yaml" >}}
@@ -749,7 +773,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeletTooManyPods
+##### KubeletTooManyPods
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubelettoomanypods
 
 {{< code lang="yaml" >}}
@@ -765,7 +789,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeNodeReadinessFlapping
+##### KubeNodeReadinessFlapping
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodereadinessflapping
 
 {{< code lang="yaml" >}}
@@ -781,7 +805,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeletPlegDurationHigh
+##### KubeletPlegDurationHigh
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletplegdurationhigh
 
 {{< code lang="yaml" >}}
@@ -797,7 +821,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeletPodStartUpLatencyHigh
+##### KubeletPodStartUpLatencyHigh
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletpodstartuplatencyhigh
 
 {{< code lang="yaml" >}}
@@ -813,7 +837,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### KubeletDown
+##### KubeletDown
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletdown
 
 {{< code lang="yaml" >}}
@@ -828,7 +852,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubeSchedulerDown
+### kubernetes-system-scheduler
+
+##### KubeSchedulerDown
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeschedulerdown
 
 {{< code lang="yaml" >}}
@@ -843,7 +869,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubeControllerManagerDown
+### kubernetes-system-controller-manager
+
+##### KubeControllerManagerDown
 https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontrollermanagerdown
 
 {{< code lang="yaml" >}}
@@ -864,7 +892,9 @@ labels:
 Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/kubernetes/rules.yaml).
 {{< /panel >}}
 
-### apiserver_request:burnrate1d
+### kube-apiserver.rules
+
+##### apiserver_request:burnrate1d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -890,7 +920,7 @@ labels:
 record: apiserver_request:burnrate1d
 {{< /code >}}
  
-### apiserver_request:burnrate1h
+##### apiserver_request:burnrate1h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -916,7 +946,7 @@ labels:
 record: apiserver_request:burnrate1h
 {{< /code >}}
  
-### apiserver_request:burnrate2h
+##### apiserver_request:burnrate2h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -942,7 +972,7 @@ labels:
 record: apiserver_request:burnrate2h
 {{< /code >}}
  
-### apiserver_request:burnrate30m
+##### apiserver_request:burnrate30m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -968,7 +998,7 @@ labels:
 record: apiserver_request:burnrate30m
 {{< /code >}}
  
-### apiserver_request:burnrate3d
+##### apiserver_request:burnrate3d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -994,7 +1024,7 @@ labels:
 record: apiserver_request:burnrate3d
 {{< /code >}}
  
-### apiserver_request:burnrate5m
+##### apiserver_request:burnrate5m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1020,7 +1050,7 @@ labels:
 record: apiserver_request:burnrate5m
 {{< /code >}}
  
-### apiserver_request:burnrate6h
+##### apiserver_request:burnrate6h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1046,7 +1076,7 @@ labels:
 record: apiserver_request:burnrate6h
 {{< /code >}}
  
-### apiserver_request:burnrate1d
+##### apiserver_request:burnrate1d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1067,7 +1097,7 @@ labels:
 record: apiserver_request:burnrate1d
 {{< /code >}}
  
-### apiserver_request:burnrate1h
+##### apiserver_request:burnrate1h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1088,7 +1118,7 @@ labels:
 record: apiserver_request:burnrate1h
 {{< /code >}}
  
-### apiserver_request:burnrate2h
+##### apiserver_request:burnrate2h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1109,7 +1139,7 @@ labels:
 record: apiserver_request:burnrate2h
 {{< /code >}}
  
-### apiserver_request:burnrate30m
+##### apiserver_request:burnrate30m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1130,7 +1160,7 @@ labels:
 record: apiserver_request:burnrate30m
 {{< /code >}}
  
-### apiserver_request:burnrate3d
+##### apiserver_request:burnrate3d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1151,7 +1181,7 @@ labels:
 record: apiserver_request:burnrate3d
 {{< /code >}}
  
-### apiserver_request:burnrate5m
+##### apiserver_request:burnrate5m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1172,7 +1202,7 @@ labels:
 record: apiserver_request:burnrate5m
 {{< /code >}}
  
-### apiserver_request:burnrate6h
+##### apiserver_request:burnrate6h
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1193,7 +1223,7 @@ labels:
 record: apiserver_request:burnrate6h
 {{< /code >}}
  
-### code_resource:apiserver_request_total:rate5m
+##### code_resource:apiserver_request_total:rate5m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1203,7 +1233,7 @@ labels:
 record: code_resource:apiserver_request_total:rate5m
 {{< /code >}}
  
-### code_resource:apiserver_request_total:rate5m
+##### code_resource:apiserver_request_total:rate5m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1213,7 +1243,7 @@ labels:
 record: code_resource:apiserver_request_total:rate5m
 {{< /code >}}
  
-### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
+##### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1224,7 +1254,7 @@ labels:
 record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
+##### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1235,7 +1265,7 @@ labels:
 record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster:apiserver_request_duration_seconds:mean5m
+##### cluster:apiserver_request_duration_seconds:mean5m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1245,7 +1275,7 @@ expr: |
 record: cluster:apiserver_request_duration_seconds:mean5m
 {{< /code >}}
  
-### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
+##### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1255,7 +1285,7 @@ labels:
 record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
+##### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1265,7 +1295,7 @@ labels:
 record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
+##### cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1275,7 +1305,9 @@ labels:
 record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### apiserver_request:availability30d
+### kube-apiserver-availability.rules
+
+##### apiserver_request:availability30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1306,7 +1338,7 @@ labels:
 record: apiserver_request:availability30d
 {{< /code >}}
  
-### apiserver_request:availability30d
+##### apiserver_request:availability30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1330,7 +1362,7 @@ labels:
 record: apiserver_request:availability30d
 {{< /code >}}
  
-### apiserver_request:availability30d
+##### apiserver_request:availability30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1352,7 +1384,7 @@ labels:
 record: apiserver_request:availability30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1360,7 +1392,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1368,7 +1400,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1376,7 +1408,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1384,7 +1416,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1392,7 +1424,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1400,7 +1432,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1408,7 +1440,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1416,7 +1448,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1424,7 +1456,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1432,7 +1464,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1440,7 +1472,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1448,7 +1480,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1456,7 +1488,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1464,7 +1496,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1472,7 +1504,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1480,7 +1512,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1488,7 +1520,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1496,7 +1528,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1504,7 +1536,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1512,7 +1544,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1520,7 +1552,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1528,7 +1560,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1536,7 +1568,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code_verb:apiserver_request_total:increase30d
+##### code_verb:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1544,7 +1576,7 @@ expr: |
 record: code_verb:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code:apiserver_request_total:increase30d
+##### code:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1554,7 +1586,7 @@ labels:
 record: code:apiserver_request_total:increase30d
 {{< /code >}}
  
-### code:apiserver_request_total:increase30d
+##### code:apiserver_request_total:increase30d
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1564,7 +1596,9 @@ labels:
 record: code:apiserver_request_total:increase30d
 {{< /code >}}
  
-### namespace:container_cpu_usage_seconds_total:sum_rate
+### k8s.rules
+
+##### namespace:container_cpu_usage_seconds_total:sum_rate
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1572,7 +1606,7 @@ expr: |
 record: namespace:container_cpu_usage_seconds_total:sum_rate
 {{< /code >}}
  
-### node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate
+##### node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1584,7 +1618,7 @@ expr: |
 record: node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate
 {{< /code >}}
  
-### node_namespace_pod_container:container_memory_working_set_bytes
+##### node_namespace_pod_container:container_memory_working_set_bytes
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1595,7 +1629,7 @@ expr: |
 record: node_namespace_pod_container:container_memory_working_set_bytes
 {{< /code >}}
  
-### node_namespace_pod_container:container_memory_rss
+##### node_namespace_pod_container:container_memory_rss
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1606,7 +1640,7 @@ expr: |
 record: node_namespace_pod_container:container_memory_rss
 {{< /code >}}
  
-### node_namespace_pod_container:container_memory_cache
+##### node_namespace_pod_container:container_memory_cache
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1617,7 +1651,7 @@ expr: |
 record: node_namespace_pod_container:container_memory_cache
 {{< /code >}}
  
-### node_namespace_pod_container:container_memory_swap
+##### node_namespace_pod_container:container_memory_swap
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1628,7 +1662,7 @@ expr: |
 record: node_namespace_pod_container:container_memory_swap
 {{< /code >}}
  
-### namespace:container_memory_usage_bytes:sum
+##### namespace:container_memory_usage_bytes:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1636,7 +1670,7 @@ expr: |
 record: namespace:container_memory_usage_bytes:sum
 {{< /code >}}
  
-### namespace:kube_pod_container_resource_requests_memory_bytes:sum
+##### namespace:kube_pod_container_resource_requests_memory_bytes:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1652,7 +1686,7 @@ expr: |
 record: namespace:kube_pod_container_resource_requests_memory_bytes:sum
 {{< /code >}}
  
-### namespace:kube_pod_container_resource_requests_cpu_cores:sum
+##### namespace:kube_pod_container_resource_requests_cpu_cores:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1668,7 +1702,7 @@ expr: |
 record: namespace:kube_pod_container_resource_requests_cpu_cores:sum
 {{< /code >}}
  
-### mixin_pod_workload
+##### mixin_pod_workload
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1690,7 +1724,7 @@ labels:
 record: mixin_pod_workload
 {{< /code >}}
  
-### mixin_pod_workload
+##### mixin_pod_workload
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1705,7 +1739,7 @@ labels:
 record: mixin_pod_workload
 {{< /code >}}
  
-### mixin_pod_workload
+##### mixin_pod_workload
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1720,7 +1754,9 @@ labels:
 record: mixin_pod_workload
 {{< /code >}}
  
-### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
+### kube-scheduler.rules
+
+##### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1730,7 +1766,7 @@ labels:
 record: cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1740,7 +1776,7 @@ labels:
 record: cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1750,7 +1786,7 @@ labels:
 record: cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1760,7 +1796,7 @@ labels:
 record: cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1770,7 +1806,7 @@ labels:
 record: cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1780,7 +1816,7 @@ labels:
 record: cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1790,7 +1826,7 @@ labels:
 record: cluster_quantile:scheduler_e2e_scheduling_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1800,7 +1836,7 @@ labels:
 record: cluster_quantile:scheduler_scheduling_algorithm_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
+##### cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1810,7 +1846,9 @@ labels:
 record: cluster_quantile:scheduler_binding_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### ':kube_pod_info_node_count:'
+### node.rules
+
+##### ':kube_pod_info_node_count:'
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1818,7 +1856,7 @@ expr: |
 record: ':kube_pod_info_node_count:'
 {{< /code >}}
  
-### 'node_namespace_pod:kube_pod_info:'
+##### 'node_namespace_pod:kube_pod_info:'
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1829,7 +1867,7 @@ expr: |
 record: 'node_namespace_pod:kube_pod_info:'
 {{< /code >}}
  
-### node:node_num_cpu:sum
+##### node:node_num_cpu:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1841,7 +1879,7 @@ expr: |
 record: node:node_num_cpu:sum
 {{< /code >}}
  
-### :node_memory_MemAvailable_bytes:sum
+##### :node_memory_MemAvailable_bytes:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1857,7 +1895,9 @@ expr: |
 record: :node_memory_MemAvailable_bytes:sum
 {{< /code >}}
  
-### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
+### kubelet.rules
+
+##### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1867,7 +1907,7 @@ labels:
 record: node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
+##### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |
@@ -1877,7 +1917,7 @@ labels:
 record: node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 {{< /code >}}
  
-### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
+##### node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 
 {{< code lang="yaml" >}}
 expr: |

@@ -2,6 +2,8 @@
 title: gluster
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/gluster/gluster-mixins](https://g
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/gluster/alerts.yaml).
 {{< /panel >}}
 
-### GlusterExporterDown
+### exporter-absent
+
+##### GlusterExporterDown
 
 {{< code lang="yaml" >}}
 alert: GlusterExporterDown
@@ -27,7 +31,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterBrickStatus
+### status-alert.rules
+
+##### GlusterBrickStatus
 
 {{< code lang="yaml" >}}
 alert: GlusterBrickStatus
@@ -40,7 +46,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterVolumeStatus
+##### GlusterVolumeStatus
 
 {{< code lang="yaml" >}}
 alert: GlusterVolumeStatus
@@ -53,7 +59,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterVolumeUtilization
+### gluster-utilization
+
+##### GlusterVolumeUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterVolumeUtilization
@@ -67,7 +75,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### GlusterVolumeUtilization
+##### GlusterVolumeUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterVolumeUtilization
@@ -81,7 +89,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterBrickUtilization
+##### GlusterBrickUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterBrickUtilization
@@ -96,7 +104,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### GlusterBrickUtilization
+##### GlusterBrickUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterBrickUtilization
@@ -111,7 +119,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterThinpoolDataUtilization
+### thinpool-utilization
+
+##### GlusterThinpoolDataUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolDataUtilization
@@ -125,7 +135,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### GlusterThinpoolDataUtilization
+##### GlusterThinpoolDataUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolDataUtilization
@@ -139,7 +149,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### GlusterThinpoolMetadataUtilization
+##### GlusterThinpoolMetadataUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolMetadataUtilization
@@ -153,7 +163,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### GlusterThinpoolMetadataUtilization
+##### GlusterThinpoolMetadataUtilization
 
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolMetadataUtilization
@@ -173,7 +183,9 @@ labels:
 Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/gluster/rules.yaml).
 {{< /panel >}}
 
-### gluster:volume_capacity_used_bytes_total:sum
+### gluster-volume.rules
+
+##### gluster:volume_capacity_used_bytes_total:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -181,7 +193,7 @@ expr: |
 record: gluster:volume_capacity_used_bytes_total:sum
 {{< /code >}}
  
-### gluster:volume_capacity_total_bytes:sum
+##### gluster:volume_capacity_total_bytes:sum
 
 {{< code lang="yaml" >}}
 expr: |

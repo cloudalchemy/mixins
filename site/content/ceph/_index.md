@@ -2,6 +2,8 @@
 title: ceph
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/ceph/ceph-mixins](https://github.
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/ceph/alerts.yaml).
 {{< /panel >}}
 
-### CephMgrIsAbsent
+### ceph-mgr-status
+
+##### CephMgrIsAbsent
 
 {{< code lang="yaml" >}}
 alert: CephMgrIsAbsent
@@ -30,7 +34,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephMgrIsMissingReplicas
+##### CephMgrIsMissingReplicas
 
 {{< code lang="yaml" >}}
 alert: CephMgrIsMissingReplicas
@@ -46,7 +50,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephMdsMissingReplicas
+### ceph-mds-status
+
+##### CephMdsMissingReplicas
 
 {{< code lang="yaml" >}}
 alert: CephMdsMissingReplicas
@@ -63,7 +69,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephMonQuorumAtRisk
+### quorum-alert.rules
+
+##### CephMonQuorumAtRisk
 
 {{< code lang="yaml" >}}
 alert: CephMonQuorumAtRisk
@@ -79,7 +87,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephMonHighNumberOfLeaderChanges
+##### CephMonHighNumberOfLeaderChanges
 
 {{< code lang="yaml" >}}
 alert: CephMonHighNumberOfLeaderChanges
@@ -96,7 +104,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephNodeDown
+### ceph-node-alert.rules
+
+##### CephNodeDown
 
 {{< code lang="yaml" >}}
 alert: CephNodeDown
@@ -112,7 +122,9 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephOSDCriticallyFull
+### osd-alert.rules
+
+##### CephOSDCriticallyFull
 
 {{< code lang="yaml" >}}
 alert: CephOSDCriticallyFull
@@ -130,7 +142,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephOSDNearFull
+##### CephOSDNearFull
 
 {{< code lang="yaml" >}}
 alert: CephOSDNearFull
@@ -148,7 +160,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephOSDDiskNotResponding
+##### CephOSDDiskNotResponding
 
 {{< code lang="yaml" >}}
 alert: CephOSDDiskNotResponding
@@ -165,7 +177,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephOSDDiskUnavailable
+##### CephOSDDiskUnavailable
 
 {{< code lang="yaml" >}}
 alert: CephOSDDiskUnavailable
@@ -182,7 +194,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephDataRecoveryTakingTooLong
+##### CephDataRecoveryTakingTooLong
 
 {{< code lang="yaml" >}}
 alert: CephDataRecoveryTakingTooLong
@@ -198,7 +210,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephPGRepairTakingTooLong
+##### CephPGRepairTakingTooLong
 
 {{< code lang="yaml" >}}
 alert: CephPGRepairTakingTooLong
@@ -214,7 +226,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephClusterErrorState
+### cluster-state-alert.rules
+
+##### CephClusterErrorState
 
 {{< code lang="yaml" >}}
 alert: CephClusterErrorState
@@ -230,7 +244,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### CephClusterWarningState
+##### CephClusterWarningState
 
 {{< code lang="yaml" >}}
 alert: CephClusterWarningState
@@ -246,7 +260,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephOSDVersionMismatch
+##### CephOSDVersionMismatch
 
 {{< code lang="yaml" >}}
 alert: CephOSDVersionMismatch
@@ -262,7 +276,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephMonVersionMismatch
+##### CephMonVersionMismatch
 
 {{< code lang="yaml" >}}
 alert: CephMonVersionMismatch
@@ -278,7 +292,9 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephClusterNearFull
+### cluster-utilization-alert.rules
+
+##### CephClusterNearFull
 
 {{< code lang="yaml" >}}
 alert: CephClusterNearFull
@@ -296,7 +312,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### CephClusterCriticallyFull
+##### CephClusterCriticallyFull
 
 {{< code lang="yaml" >}}
 alert: CephClusterCriticallyFull
@@ -320,7 +336,9 @@ labels:
 Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/ceph/rules.yaml).
 {{< /panel >}}
 
-### cluster:ceph_node_down:join_kube
+### ceph.rules
+
+##### cluster:ceph_node_down:join_kube
 
 {{< code lang="yaml" >}}
 expr: |
@@ -328,7 +346,7 @@ expr: |
 record: cluster:ceph_node_down:join_kube
 {{< /code >}}
  
-### cluster:ceph_disk_latency:join_ceph_node_disk_irate1m
+##### cluster:ceph_disk_latency:join_ceph_node_disk_irate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -336,7 +354,9 @@ expr: |
 record: cluster:ceph_disk_latency:join_ceph_node_disk_irate1m
 {{< /code >}}
  
-### job:ceph_osd_metadata:count
+### telemeter.rules
+
+##### job:ceph_osd_metadata:count
 
 {{< code lang="yaml" >}}
 expr: |
@@ -344,7 +364,7 @@ expr: |
 record: job:ceph_osd_metadata:count
 {{< /code >}}
  
-### job:kube_pv:count
+##### job:kube_pv:count
 
 {{< code lang="yaml" >}}
 expr: |
@@ -352,7 +372,7 @@ expr: |
 record: job:kube_pv:count
 {{< /code >}}
  
-### job:ceph_pools_iops:total
+##### job:ceph_pools_iops:total
 
 {{< code lang="yaml" >}}
 expr: |
@@ -360,7 +380,7 @@ expr: |
 record: job:ceph_pools_iops:total
 {{< /code >}}
  
-### job:ceph_pools_iops_bytes:total
+##### job:ceph_pools_iops_bytes:total
 
 {{< code lang="yaml" >}}
 expr: |
@@ -368,7 +388,7 @@ expr: |
 record: job:ceph_pools_iops_bytes:total
 {{< /code >}}
  
-### job:ceph_versions_running:count
+##### job:ceph_versions_running:count
 
 {{< code lang="yaml" >}}
 expr: |

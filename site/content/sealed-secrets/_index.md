@@ -2,6 +2,8 @@
 title: sealed-secrets
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/bitnami-labs/sealed-secrets](http
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/sealed-secrets/alerts.yaml).
 {{< /panel >}}
 
-### SealedSecretsUnsealErrorRateHigh
+### sealed-secrets
+
+##### SealedSecretsUnsealErrorRateHigh
 
 {{< code lang="yaml" >}}
 alert: SealedSecretsUnsealErrorRateHigh

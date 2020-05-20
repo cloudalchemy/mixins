@@ -2,6 +2,8 @@
 title: etcd
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/etcd-io/etcd](https://github.com/
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/etcd/alerts.yaml).
 {{< /panel >}}
 
-### etcdMembersDown
+### etcd
+
+##### etcdMembersDown
 
 {{< code lang="yaml" >}}
 alert: etcdMembersDown
@@ -34,7 +38,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdInsufficientMembers
+##### etcdInsufficientMembers
 
 {{< code lang="yaml" >}}
 alert: etcdInsufficientMembers
@@ -47,7 +51,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdNoLeader
+##### etcdNoLeader
 
 {{< code lang="yaml" >}}
 alert: etcdNoLeader
@@ -61,7 +65,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdHighNumberOfLeaderChanges
+##### etcdHighNumberOfLeaderChanges
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfLeaderChanges
@@ -76,7 +80,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighNumberOfFailedGRPCRequests
+##### etcdHighNumberOfFailedGRPCRequests
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfFailedGRPCRequests
@@ -93,7 +97,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighNumberOfFailedGRPCRequests
+##### etcdHighNumberOfFailedGRPCRequests
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfFailedGRPCRequests
@@ -110,7 +114,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdGRPCRequestsSlow
+##### etcdGRPCRequestsSlow
 
 {{< code lang="yaml" >}}
 alert: etcdGRPCRequestsSlow
@@ -125,7 +129,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdMemberCommunicationSlow
+##### etcdMemberCommunicationSlow
 
 {{< code lang="yaml" >}}
 alert: etcdMemberCommunicationSlow
@@ -140,7 +144,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighNumberOfFailedProposals
+##### etcdHighNumberOfFailedProposals
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfFailedProposals
@@ -154,7 +158,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighFsyncDurations
+##### etcdHighFsyncDurations
 
 {{< code lang="yaml" >}}
 alert: etcdHighFsyncDurations
@@ -169,7 +173,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighCommitDurations
+##### etcdHighCommitDurations
 
 {{< code lang="yaml" >}}
 alert: etcdHighCommitDurations
@@ -184,7 +188,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighNumberOfFailedHTTPRequests
+##### etcdHighNumberOfFailedHTTPRequests
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfFailedHTTPRequests
@@ -199,7 +203,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### etcdHighNumberOfFailedHTTPRequests
+##### etcdHighNumberOfFailedHTTPRequests
 
 {{< code lang="yaml" >}}
 alert: etcdHighNumberOfFailedHTTPRequests
@@ -214,7 +218,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### etcdHTTPRequestsSlow
+##### etcdHTTPRequestsSlow
 
 {{< code lang="yaml" >}}
 alert: etcdHTTPRequestsSlow

@@ -2,6 +2,8 @@
 title: kube-state-metrics
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/kubernetes/kube-state-metrics](ht
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/kube-state-metrics/alerts.yaml).
 {{< /panel >}}
 
-### KubeStateMetricsListErrors
+### kube-state-metrics
+
+##### KubeStateMetricsListErrors
 
 {{< code lang="yaml" >}}
 alert: KubeStateMetricsListErrors
@@ -32,7 +36,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### KubeStateMetricsWatchErrors
+##### KubeStateMetricsWatchErrors
 
 {{< code lang="yaml" >}}
 alert: KubeStateMetricsWatchErrors

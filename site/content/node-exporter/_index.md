@@ -2,6 +2,8 @@
 title: node-exporter
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/prometheus/node_exporter](https:/
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/alerts.yaml).
 {{< /panel >}}
 
-### NodeFilesystemSpaceFillingUp
+### node-exporter
+
+##### NodeFilesystemSpaceFillingUp
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemSpaceFillingUp
@@ -35,7 +39,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeFilesystemSpaceFillingUp
+##### NodeFilesystemSpaceFillingUp
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemSpaceFillingUp
@@ -56,7 +60,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### NodeFilesystemAlmostOutOfSpace
+##### NodeFilesystemAlmostOutOfSpace
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemAlmostOutOfSpace
@@ -75,7 +79,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeFilesystemAlmostOutOfSpace
+##### NodeFilesystemAlmostOutOfSpace
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemAlmostOutOfSpace
@@ -94,7 +98,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### NodeFilesystemFilesFillingUp
+##### NodeFilesystemFilesFillingUp
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemFilesFillingUp
@@ -115,7 +119,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeFilesystemFilesFillingUp
+##### NodeFilesystemFilesFillingUp
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemFilesFillingUp
@@ -136,7 +140,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### NodeFilesystemAlmostOutOfFiles
+##### NodeFilesystemAlmostOutOfFiles
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemAlmostOutOfFiles
@@ -155,7 +159,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeFilesystemAlmostOutOfFiles
+##### NodeFilesystemAlmostOutOfFiles
 
 {{< code lang="yaml" >}}
 alert: NodeFilesystemAlmostOutOfFiles
@@ -174,7 +178,7 @@ labels:
   severity: critical
 {{< /code >}}
  
-### NodeNetworkReceiveErrs
+##### NodeNetworkReceiveErrs
 
 {{< code lang="yaml" >}}
 alert: NodeNetworkReceiveErrs
@@ -189,7 +193,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeNetworkTransmitErrs
+##### NodeNetworkTransmitErrs
 
 {{< code lang="yaml" >}}
 alert: NodeNetworkTransmitErrs
@@ -204,7 +208,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeHighNumberConntrackEntriesUsed
+##### NodeHighNumberConntrackEntriesUsed
 
 {{< code lang="yaml" >}}
 alert: NodeHighNumberConntrackEntriesUsed
@@ -217,7 +221,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeTextFileCollectorScrapeError
+##### NodeTextFileCollectorScrapeError
 
 {{< code lang="yaml" >}}
 alert: NodeTextFileCollectorScrapeError
@@ -230,7 +234,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeClockSkewDetected
+##### NodeClockSkewDetected
 
 {{< code lang="yaml" >}}
 alert: NodeClockSkewDetected
@@ -255,7 +259,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### NodeClockNotSynchronising
+##### NodeClockNotSynchronising
 
 {{< code lang="yaml" >}}
 alert: NodeClockNotSynchronising
@@ -276,7 +280,9 @@ labels:
 Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/rules.yaml).
 {{< /panel >}}
 
-### instance:node_num_cpu:sum
+### node-exporter.rules
+
+##### instance:node_num_cpu:sum
 
 {{< code lang="yaml" >}}
 expr: |
@@ -288,7 +294,7 @@ expr: |
 record: instance:node_num_cpu:sum
 {{< /code >}}
  
-### instance:node_cpu_utilisation:rate1m
+##### instance:node_cpu_utilisation:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -298,7 +304,7 @@ expr: |
 record: instance:node_cpu_utilisation:rate1m
 {{< /code >}}
  
-### instance:node_load1_per_cpu:ratio
+##### instance:node_load1_per_cpu:ratio
 
 {{< code lang="yaml" >}}
 expr: |
@@ -310,7 +316,7 @@ expr: |
 record: instance:node_load1_per_cpu:ratio
 {{< /code >}}
  
-### instance:node_memory_utilisation:ratio
+##### instance:node_memory_utilisation:ratio
 
 {{< code lang="yaml" >}}
 expr: |
@@ -322,7 +328,7 @@ expr: |
 record: instance:node_memory_utilisation:ratio
 {{< /code >}}
  
-### instance:node_vmstat_pgmajfault:rate1m
+##### instance:node_vmstat_pgmajfault:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -330,7 +336,7 @@ expr: |
 record: instance:node_vmstat_pgmajfault:rate1m
 {{< /code >}}
  
-### instance_device:node_disk_io_time_seconds:rate1m
+##### instance_device:node_disk_io_time_seconds:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -338,7 +344,7 @@ expr: |
 record: instance_device:node_disk_io_time_seconds:rate1m
 {{< /code >}}
  
-### instance_device:node_disk_io_time_weighted_seconds:rate1m
+##### instance_device:node_disk_io_time_weighted_seconds:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -346,7 +352,7 @@ expr: |
 record: instance_device:node_disk_io_time_weighted_seconds:rate1m
 {{< /code >}}
  
-### instance:node_network_receive_bytes_excluding_lo:rate1m
+##### instance:node_network_receive_bytes_excluding_lo:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -356,7 +362,7 @@ expr: |
 record: instance:node_network_receive_bytes_excluding_lo:rate1m
 {{< /code >}}
  
-### instance:node_network_transmit_bytes_excluding_lo:rate1m
+##### instance:node_network_transmit_bytes_excluding_lo:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -366,7 +372,7 @@ expr: |
 record: instance:node_network_transmit_bytes_excluding_lo:rate1m
 {{< /code >}}
  
-### instance:node_network_receive_drop_excluding_lo:rate1m
+##### instance:node_network_receive_drop_excluding_lo:rate1m
 
 {{< code lang="yaml" >}}
 expr: |
@@ -376,7 +382,7 @@ expr: |
 record: instance:node_network_receive_drop_excluding_lo:rate1m
 {{< /code >}}
  
-### instance:node_network_transmit_drop_excluding_lo:rate1m
+##### instance:node_network_transmit_drop_excluding_lo:rate1m
 
 {{< code lang="yaml" >}}
 expr: |

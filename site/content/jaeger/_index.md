@@ -2,6 +2,8 @@
 title: jaeger
 ---
 
+## Overview
+
 
 
 {{< panel style="primary" title="Jsonnet source" >}}
@@ -14,7 +16,9 @@ Mixin jsonnet code is available at [github.com/grafana/jsonnet-libs](https://git
 Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/jaeger/alerts.yaml).
 {{< /panel >}}
 
-### JaegerAgentUDPPacketsBeingDropped
+### jaeger_alerts
+
+##### JaegerAgentUDPPacketsBeingDropped
 
 {{< code lang="yaml" >}}
 alert: JaegerAgentUDPPacketsBeingDropped
@@ -27,7 +31,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerAgentHTTPServerErrs
+##### JaegerAgentHTTPServerErrs
 
 {{< code lang="yaml" >}}
 alert: JaegerAgentHTTPServerErrs
@@ -42,7 +46,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerClientSpansDropped
+##### JaegerClientSpansDropped
 
 {{< code lang="yaml" >}}
 alert: JaegerClientSpansDropped
@@ -57,7 +61,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerAgentSpansDropped
+##### JaegerAgentSpansDropped
 
 {{< code lang="yaml" >}}
 alert: JaegerAgentSpansDropped
@@ -72,7 +76,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerCollectorQueueNotDraining
+##### JaegerCollectorQueueNotDraining
 
 {{< code lang="yaml" >}}
 alert: JaegerCollectorQueueNotDraining
@@ -85,7 +89,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerCollectorDroppingSpans
+##### JaegerCollectorDroppingSpans
 
 {{< code lang="yaml" >}}
 alert: JaegerCollectorDroppingSpans
@@ -100,7 +104,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerSamplingUpdateFailing
+##### JaegerSamplingUpdateFailing
 
 {{< code lang="yaml" >}}
 alert: JaegerSamplingUpdateFailing
@@ -115,7 +119,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerCollectorPersistenceSlow
+##### JaegerCollectorPersistenceSlow
 
 {{< code lang="yaml" >}}
 alert: JaegerCollectorPersistenceSlow
@@ -129,7 +133,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerThrottlingUpdateFailing
+##### JaegerThrottlingUpdateFailing
 
 {{< code lang="yaml" >}}
 alert: JaegerThrottlingUpdateFailing
@@ -144,7 +148,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerQueryReqsFailing
+##### JaegerQueryReqsFailing
 
 {{< code lang="yaml" >}}
 alert: JaegerQueryReqsFailing
@@ -159,7 +163,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerCassandraWritesFailing
+##### JaegerCassandraWritesFailing
 
 {{< code lang="yaml" >}}
 alert: JaegerCassandraWritesFailing
@@ -174,7 +178,7 @@ labels:
   severity: warning
 {{< /code >}}
  
-### JaegerCassandraReadsFailing
+##### JaegerCassandraReadsFailing
 
 {{< code lang="yaml" >}}
 alert: JaegerCassandraReadsFailing
