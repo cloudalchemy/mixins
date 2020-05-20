@@ -4,16 +4,16 @@ title: etcd
 
 ## Overview
 
+A set of customisable Prometheus alerts for etcd.
 
-
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/etcd-io/etcd](https://github.com/etcd-io/etcd/tree/master/Documentation/etcd-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/etcd-io/etcd](https://github.com/etcd-io/etcd/tree/master/Documentation/etcd-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/etcd/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/etcd/alerts.yaml).
 {{< /panel >}}
 
 ### etcd
@@ -237,4 +237,4 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [etcd](https://github.com/cloudalchemy/mixins/blob/master/manifests/etcd/dashboards/etcd.json)
+- [etcd](https://github.com/cloudalchemy/mixins/blob/master/assets/etcd/dashboards/etcd.json)

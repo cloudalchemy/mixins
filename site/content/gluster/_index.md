@@ -4,16 +4,18 @@ title: gluster
 
 ## Overview
 
+A set of Grafana dashboards and Prometheus alerts for Gluster.
 
+The scope of this project is to provide Gluster specific Grafana dashboard configs and Prometheus rule files using Prometheus Mixins.
 
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/gluster/gluster-mixins](https://github.com/gluster/gluster-mixins)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/gluster/gluster-mixins](https://github.com/gluster/gluster-mixins)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/gluster/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/alerts.yaml).
 {{< /panel >}}
 
 ### exporter-absent
@@ -179,8 +181,8 @@ labels:
  
 ## Recording rules
 
-{{< panel style="info" >}}
-Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/gluster/rules.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/rules.yaml).
 {{< /panel >}}
 
 ### gluster-volume.rules
@@ -205,4 +207,4 @@ record: gluster:volume_capacity_total_bytes:sum
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [k8s-storage-resources-glusterfs-pv](https://github.com/cloudalchemy/mixins/blob/master/manifests/gluster/dashboards/k8s-storage-resources-glusterfs-pv.json)
+- [k8s-storage-resources-glusterfs-pv](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/dashboards/k8s-storage-resources-glusterfs-pv.json)

@@ -6,14 +6,14 @@ title: kube-state-metrics
 
 
 
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/kubernetes/kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/jsonnet/kube-state-metrics-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/kubernetes/kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/jsonnet/kube-state-metrics-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/kube-state-metrics/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/kube-state-metrics/alerts.yaml).
 {{< /panel >}}
 
 ### kube-state-metrics
