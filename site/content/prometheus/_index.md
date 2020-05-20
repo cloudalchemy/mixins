@@ -4,16 +4,16 @@ title: prometheus
 
 ## Overview
 
+The Prometheus Mixin is a set of configurable, reusable, and extensible alerts and dashboards for Prometheus.
 
-
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/prometheus/prometheus](https://github.com/prometheus/prometheus/tree/master/documentation/prometheus-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/prometheus/prometheus](https://github.com/prometheus/prometheus/tree/master/documentation/prometheus-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/prometheus/alerts.yaml).
 {{< /panel >}}
 
 ### prometheus
@@ -300,5 +300,5 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [prometheus](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/dashboards/prometheus.json)
-- [prometheus-remote-write](https://github.com/cloudalchemy/mixins/blob/master/manifests/prometheus/dashboards/prometheus-remote-write.json)
+- [prometheus](https://github.com/cloudalchemy/mixins/blob/master/assets/prometheus/dashboards/prometheus.json)
+- [prometheus-remote-write](https://github.com/cloudalchemy/mixins/blob/master/assets/prometheus/dashboards/prometheus-remote-write.json)

@@ -4,16 +4,16 @@ title: consul
 
 ## Overview
 
+Grafana dashboards and Prometheus alerts for operating Consul, in the form of a monitoring mixin.
 
-
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/consul-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/grafana/jsonnet-libs](https://github.com/grafana/jsonnet-libs/tree/master/consul-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/consul/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/consul/alerts.yaml).
 {{< /panel >}}
 
 ### consul
@@ -61,4 +61,4 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [consul-overview](https://github.com/cloudalchemy/mixins/blob/master/manifests/consul/dashboards/consul-overview.json)
+- [consul-overview](https://github.com/cloudalchemy/mixins/blob/master/assets/consul/dashboards/consul-overview.json)

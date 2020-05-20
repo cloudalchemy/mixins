@@ -6,14 +6,14 @@ title: sealed-secrets
 
 
 
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets/tree/master/contrib/prometheus-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets/tree/master/contrib/prometheus-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/sealed-secrets/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/sealed-secrets/alerts.yaml).
 {{< /panel >}}
 
 ### sealed-secrets
@@ -35,4 +35,4 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [sealed-secrets-controller](https://github.com/cloudalchemy/mixins/blob/master/manifests/sealed-secrets/dashboards/sealed-secrets-controller.json)
+- [sealed-secrets-controller](https://github.com/cloudalchemy/mixins/blob/master/assets/sealed-secrets/dashboards/sealed-secrets-controller.json)

@@ -4,16 +4,16 @@ title: node-exporter
 
 ## Overview
 
+The Node Mixin is a set of configurable, reusable, and extensible alerts and dashboards based on the metrics exported by the Node Exporter. The mixin creates recording and alerting rules for Prometheus and suitable dashboard descriptions for Grafana.
 
-
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/prometheus/node_exporter](https://github.com/prometheus/node_exporter/tree/master/docs/node-mixin)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/prometheus/node_exporter](https://github.com/prometheus/node_exporter/tree/master/docs/node-mixin)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/node-exporter/alerts.yaml).
 {{< /panel >}}
 
 ### node-exporter
@@ -276,8 +276,8 @@ labels:
  
 ## Recording rules
 
-{{< panel style="info" >}}
-Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/rules.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/node-exporter/rules.yaml).
 {{< /panel >}}
 
 ### node-exporter.rules
@@ -396,6 +396,6 @@ record: instance:node_network_transmit_drop_excluding_lo:rate1m
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [node-cluster-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/node-cluster-rsrc-use.json)
-- [node-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/node-rsrc-use.json)
-- [nodes](https://github.com/cloudalchemy/mixins/blob/master/manifests/node-exporter/dashboards/nodes.json)
+- [node-cluster-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/assets/node-exporter/dashboards/node-cluster-rsrc-use.json)
+- [node-rsrc-use](https://github.com/cloudalchemy/mixins/blob/master/assets/node-exporter/dashboards/node-rsrc-use.json)
+- [nodes](https://github.com/cloudalchemy/mixins/blob/master/assets/node-exporter/dashboards/nodes.json)

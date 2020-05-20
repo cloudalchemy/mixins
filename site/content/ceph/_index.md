@@ -4,16 +4,18 @@ title: ceph
 
 ## Overview
 
+A set of Prometheus alerts for Ceph.
 
+The scope of this project is to provide Ceph specific Prometheus rule files using Prometheus Mixins.
 
-{{< panel style="primary" title="Jsonnet source" >}}
-Mixin jsonnet code is available at [github.com/ceph/ceph-mixins](https://github.com/ceph/ceph-mixins)
+{{< panel style="danger" >}}
+Jsonnet source code is available at [github.com/ceph/ceph-mixins](https://github.com/ceph/ceph-mixins)
 {{< /panel >}}
 
 ## Alerts
 
-{{< panel style="info" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/ceph/alerts.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/ceph/alerts.yaml).
 {{< /panel >}}
 
 ### ceph-mgr-status
@@ -332,8 +334,8 @@ labels:
  
 ## Recording rules
 
-{{< panel style="info" >}}
-Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/manifests/ceph/rules.yaml).
+{{< panel style="warning" >}}
+Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/ceph/rules.yaml).
 {{< /panel >}}
 
 ### ceph.rules
