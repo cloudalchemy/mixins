@@ -2,7 +2,7 @@
 
 ## Adding new mixin
 
-0. Install [required software](##requirements)
+0. Install [required software](#requirements)
 1. Add new mixin to [mixins.yaml](mixins.yaml) file
 2. Run `generate.sh`
 
