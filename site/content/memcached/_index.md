@@ -14,4 +14,4 @@ Jsonnet source code is available at [github.com/grafana/jsonnet-libs](https://gi
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [memcached-overview](https://github.com/cloudalchemy/mixins/blob/master/assets/memcached/dashboards/memcached-overview.json)
+- [memcached-overview](https://github.com/monitoring-mixins/website/blob/master/assets/memcached/dashboards/memcached-overview.json)

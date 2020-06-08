@@ -15,7 +15,7 @@ Jsonnet source code is available at [github.com/gluster/gluster-mixins](https://
 ## Alerts
 
 {{< panel style="warning" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/alerts.yaml).
+Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/gluster/alerts.yaml).
 {{< /panel >}}
 
 ### exporter-absent
@@ -96,8 +96,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterBrickUtilization
 annotations:
-  message: Gluster Brick {{$labels.host}}:{{$labels.brick_path}} Utilization more
-    than 80%
+  message: Gluster Brick {{$labels.host}}:{{$labels.brick_path}} Utilization more than 80%
 expr: |
   100 * gluster_brick_capacity_used_bytes{job="glusterd2-client"}
       / gluster_brick_capacity_bytes_total{job="glusterd2-client"} > 80
@@ -111,8 +110,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterBrickUtilization
 annotations:
-  message: Gluster Brick {{$labels.host}}:{{$labels.brick_path}} Utilization more
-    than 90%
+  message: Gluster Brick {{$labels.host}}:{{$labels.brick_path}} Utilization more than 90%
 expr: |
   100 * gluster_brick_capacity_used_bytes{job="glusterd2-client"}
       / gluster_brick_capacity_bytes_total{job="glusterd2-client"} > 90
@@ -128,8 +126,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolDataUtilization
 annotations:
-  message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more than
-    80%
+  message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more than 80%
 expr: |
   gluster_thinpool_data_used_bytes{job="glusterd2-client"} / gluster_thinpool_data_total_bytes{job="glusterd2-client"} > 0.8
 for: 5m
@@ -142,8 +139,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolDataUtilization
 annotations:
-  message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more than
-    90%
+  message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more than 90%
 expr: |
   gluster_thinpool_data_used_bytes{job="glusterd2-client"} / gluster_thinpool_data_total_bytes{job="glusterd2-client"} > 0.9
 for: 5m
@@ -156,8 +152,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolMetadataUtilization
 annotations:
-  message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization more
-    than 80%
+  message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization more than 80%
 expr: |
   gluster_thinpool_metadata_used_bytes{job="glusterd2-client"} / gluster_thinpool_metadata_total_bytes{job="glusterd2-client"} > 0.8
 for: 5m
@@ -170,8 +165,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: GlusterThinpoolMetadataUtilization
 annotations:
-  message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization more
-    than 90%
+  message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization more than 90%
 expr: |
   gluster_thinpool_metadata_used_bytes{job="glusterd2-client"} / gluster_thinpool_metadata_total_bytes{job="glusterd2-client"} > 0.9
 for: 5m
@@ -182,7 +176,7 @@ labels:
 ## Recording rules
 
 {{< panel style="warning" >}}
-Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/rules.yaml).
+Complete list of pregenerated recording rules is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/gluster/rules.yaml).
 {{< /panel >}}
 
 ### gluster-volume.rules
@@ -207,4 +201,4 @@ record: gluster:volume_capacity_total_bytes:sum
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [k8s-storage-resources-glusterfs-pv](https://github.com/cloudalchemy/mixins/blob/master/assets/gluster/dashboards/k8s-storage-resources-glusterfs-pv.json)
+- [k8s-storage-resources-glusterfs-pv](https://github.com/monitoring-mixins/website/blob/master/assets/gluster/dashboards/k8s-storage-resources-glusterfs-pv.json)

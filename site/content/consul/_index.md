@@ -13,7 +13,7 @@ Jsonnet source code is available at [github.com/grafana/jsonnet-libs](https://gi
 ## Alerts
 
 {{< panel style="warning" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/consul/alerts.yaml).
+Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/consul/alerts.yaml).
 {{< /panel >}}
 
 ### consul
@@ -61,4 +61,4 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [consul-overview](https://github.com/cloudalchemy/mixins/blob/master/assets/consul/dashboards/consul-overview.json)
+- [consul-overview](https://github.com/monitoring-mixins/website/blob/master/assets/consul/dashboards/consul-overview.json)
