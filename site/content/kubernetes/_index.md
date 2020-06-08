@@ -13,7 +13,7 @@ Jsonnet source code is available at [github.com/kubernetes-monitoring/kubernetes
 ## Alerts
 
 {{< panel style="warning" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/alerts.yaml).
+Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/alerts.yaml).
 {{< /panel >}}
 
 ### kubernetes-apps
@@ -24,8 +24,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubePodCrashLooping
 annotations:
-  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} ({{ $labels.container }})
-    is restarting {{ printf "%.2f" $value }} times / 5 minutes.
+  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} ({{ $labels.container }}) is restarting {{ printf "%.2f" $value }} times / 5 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodcrashlooping
 expr: |
   rate(kube_pod_container_status_restarts_total{job="kube-state-metrics"}[5m]) * 60 * 5 > 0
@@ -40,8 +39,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubePodNotReady
 annotations:
-  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-ready state
-    for longer than 15 minutes.
+  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-ready state for longer than 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodnotready
 expr: |
   sum by (namespace, pod) (
@@ -62,9 +60,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeDeploymentGenerationMismatch
 annotations:
-  message: Deployment generation for {{ $labels.namespace }}/{{ $labels.deployment
-    }} does not match, this indicates that the Deployment has failed but has not been
-    rolled back.
+  message: Deployment generation for {{ $labels.namespace }}/{{ $labels.deployment }} does not match, this indicates that the Deployment has failed but has not been rolled back.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentgenerationmismatch
 expr: |
   kube_deployment_status_observed_generation{job="kube-state-metrics"}
@@ -81,8 +77,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeDeploymentReplicasMismatch
 annotations:
-  message: Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has not matched
-    the expected number of replicas for longer than 15 minutes.
+  message: Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has not matched the expected number of replicas for longer than 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentreplicasmismatch
 expr: |
   (
@@ -105,8 +100,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeStatefulSetReplicasMismatch
 annotations:
-  message: StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has not matched
-    the expected number of replicas for longer than 15 minutes.
+  message: StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has not matched the expected number of replicas for longer than 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetreplicasmismatch
 expr: |
   (
@@ -129,9 +123,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeStatefulSetGenerationMismatch
 annotations:
-  message: StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset
-    }} does not match, this indicates that the StatefulSet has failed but has not
-    been rolled back.
+  message: StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset }} does not match, this indicates that the StatefulSet has failed but has not been rolled back.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetgenerationmismatch
 expr: |
   kube_statefulset_status_observed_generation{job="kube-state-metrics"}
@@ -148,8 +140,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeStatefulSetUpdateNotRolledOut
 annotations:
-  message: StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has
-    not been rolled out.
+  message: StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update has not been rolled out.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetupdatenotrolledout
 expr: |
   max without (revision) (
@@ -174,8 +165,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeDaemonSetRolloutStuck
 annotations:
-  message: Only {{ $value | humanizePercentage }} of the desired Pods of DaemonSet
-    {{ $labels.namespace }}/{{ $labels.daemonset }} are scheduled and ready.
+  message: Only {{ $value | humanizePercentage }} of the desired Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are scheduled and ready.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetrolloutstuck
 expr: |
   kube_daemonset_status_number_ready{job="kube-state-metrics"}
@@ -192,8 +182,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeContainerWaiting
 annotations:
-  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} container {{ $labels.container}}
-    has been in waiting state for longer than 1 hour.
+  message: Pod {{ $labels.namespace }}/{{ $labels.pod }} container {{ $labels.container}} has been in waiting state for longer than 1 hour.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontainerwaiting
 expr: |
   sum by (namespace, pod, container) (kube_pod_container_status_waiting_reason{job="kube-state-metrics"}) > 0
@@ -208,8 +197,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeDaemonSetNotScheduled
 annotations:
-  message: '{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset
-    }} are not scheduled.'
+  message: '{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are not scheduled.'
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetnotscheduled
 expr: |
   kube_daemonset_status_desired_number_scheduled{job="kube-state-metrics"}
@@ -226,8 +214,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeDaemonSetMisScheduled
 annotations:
-  message: '{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset
-    }} are running where they are not supposed to run.'
+  message: '{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset }} are running where they are not supposed to run.'
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetmisscheduled
 expr: |
   kube_daemonset_status_number_misscheduled{job="kube-state-metrics"} > 0
@@ -242,8 +229,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeCronJobRunning
 annotations:
-  message: CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than
-    1h to complete.
+  message: CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more than 1h to complete.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecronjobrunning
 expr: |
   time() - kube_cronjob_next_schedule_time{job="kube-state-metrics"} > 3600
@@ -258,8 +244,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeJobCompletion
 annotations:
-  message: Job {{ $labels.namespace }}/{{ $labels.job_name }} is taking more than
-    one hour to complete.
+  message: Job {{ $labels.namespace }}/{{ $labels.job_name }} is taking more than one hour to complete.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobcompletion
 expr: |
   kube_job_spec_completions{job="kube-state-metrics"} - kube_job_status_succeeded{job="kube-state-metrics"}  > 0
@@ -289,8 +274,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeHpaReplicasMismatch
 annotations:
-  message: HPA {{ $labels.namespace }}/{{ $labels.hpa }} has not matched the desired
-    number of replicas for longer than 15 minutes.
+  message: HPA {{ $labels.namespace }}/{{ $labels.hpa }} has not matched the desired number of replicas for longer than 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpareplicasmismatch
 expr: |
   (kube_hpa_status_desired_replicas{job="kube-state-metrics"}
@@ -309,8 +293,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeHpaMaxedOut
 annotations:
-  message: HPA {{ $labels.namespace }}/{{ $labels.hpa }} has been running at max replicas
-    for longer than 15 minutes.
+  message: HPA {{ $labels.namespace }}/{{ $labels.hpa }} has been running at max replicas for longer than 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpamaxedout
 expr: |
   kube_hpa_status_current_replicas{job="kube-state-metrics"}
@@ -329,8 +312,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeCPUOvercommit
 annotations:
-  message: Cluster has overcommitted CPU resource requests for Pods and cannot tolerate
-    node failure.
+  message: Cluster has overcommitted CPU resource requests for Pods and cannot tolerate node failure.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuovercommit
 expr: |
   sum(namespace:kube_pod_container_resource_requests_cpu_cores:sum{})
@@ -349,8 +331,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeMemoryOvercommit
 annotations:
-  message: Cluster has overcommitted memory resource requests for Pods and cannot
-    tolerate node failure.
+  message: Cluster has overcommitted memory resource requests for Pods and cannot tolerate node failure.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryovercommit
 expr: |
   sum(namespace:kube_pod_container_resource_requests_memory_bytes:sum{})
@@ -407,8 +388,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeQuotaExceeded
 annotations:
-  message: Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage
-    }} of its {{ $labels.resource }} quota.
+  message: Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage }} of its {{ $labels.resource }} quota.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaexceeded
 expr: |
   kube_resourcequota{job="kube-state-metrics", type="used"}
@@ -426,8 +406,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: CPUThrottlingHigh
 annotations:
-  message: '{{ $value | humanizePercentage }} throttling of CPU in namespace {{ $labels.namespace
-    }} for container {{ $labels.container }} in pod {{ $labels.pod }}.'
+  message: '{{ $value | humanizePercentage }} throttling of CPU in namespace {{ $labels.namespace }} for container {{ $labels.container }} in pod {{ $labels.pod }}.'
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-cputhrottlinghigh
 expr: |
   sum(increase(container_cpu_cfs_throttled_periods_total{container!="", }[5m])) by (container, pod, namespace)
@@ -447,8 +426,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubePersistentVolumeFillingUp
 annotations:
-  message: The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in
-    Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage }} free.
+  message: The PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage }} free.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
 expr: |
   kubelet_volume_stats_available_bytes{job="kubelet"}
@@ -466,9 +444,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubePersistentVolumeFillingUp
 annotations:
-  message: Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim
-    }} in Namespace {{ $labels.namespace }} is expected to fill up within four days.
-    Currently {{ $value | humanizePercentage }} is available.
+  message: Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace }} is expected to fill up within four days. Currently {{ $value | humanizePercentage }} is available.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
 expr: |
   (
@@ -489,8 +465,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubePersistentVolumeErrors
 annotations:
-  message: The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase
-    }}.
+  message: The persistent volume {{ $labels.persistentvolume }} has status {{ $labels.phase }}.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeerrors
 expr: |
   kube_persistentvolume_status_phase{phase=~"Failed|Pending",job="kube-state-metrics"} > 0
@@ -507,8 +482,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeVersionMismatch
 annotations:
-  message: There are {{ $value }} different semantic versions of Kubernetes components
-    running.
+  message: There are {{ $value }} different semantic versions of Kubernetes components running.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeversionmismatch
 expr: |
   count(count by (gitVersion) (label_replace(kubernetes_build_info{job!~"kube-dns|coredns"},"gitVersion","$1","gitVersion","(v[0-9]*.[0-9]*.[0-9]*).*"))) > 1
@@ -523,8 +497,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeClientErrors
 annotations:
-  message: Kubernetes API server client '{{ $labels.job }}/{{ $labels.instance }}'
-    is experiencing {{ $value | humanizePercentage }} errors.'
+  message: Kubernetes API server client '{{ $labels.job }}/{{ $labels.instance }}' is experiencing {{ $value | humanizePercentage }} errors.'
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclienterrors
 expr: |
   (sum(rate(rest_client_requests_total{code=~"5.."}[5m])) by (instance, job)
@@ -622,8 +595,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeAPILatencyHigh
 annotations:
-  message: The API server has an abnormal latency of {{ $value }} seconds for {{ $labels.verb
-    }} {{ $labels.resource }}.
+  message: The API server has an abnormal latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapilatencyhigh
 expr: |
   (
@@ -652,9 +624,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeAPIErrorsHigh
 annotations:
-  message: API server is returning errors for {{ $value | humanizePercentage }} of
-    requests for {{ $labels.verb }} {{ $labels.resource }} {{ $labels.subresource
-    }}.
+  message: API server is returning errors for {{ $value | humanizePercentage }} of requests for {{ $labels.verb }} {{ $labels.resource }} {{ $labels.subresource }}.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorshigh
 expr: |
   sum(rate(apiserver_request_total{job="kube-apiserver",code=~"5.."}[5m])) by (resource,subresource,verb)
@@ -671,8 +641,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeClientCertificateExpiration
 annotations:
-  message: A client certificate used to authenticate to the apiserver is expiring
-    in less than 7.0 days.
+  message: A client certificate used to authenticate to the apiserver is expiring in less than 7.0 days.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
 expr: |
   apiserver_client_certificate_expiration_seconds_count{job="kube-apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="kube-apiserver"}[5m]))) < 604800
@@ -686,8 +655,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeClientCertificateExpiration
 annotations:
-  message: A client certificate used to authenticate to the apiserver is expiring
-    in less than 24.0 hours.
+  message: A client certificate used to authenticate to the apiserver is expiring in less than 24.0 hours.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
 expr: |
   apiserver_client_certificate_expiration_seconds_count{job="kube-apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="kube-apiserver"}[5m]))) < 86400
@@ -701,9 +669,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: AggregatedAPIErrors
 annotations:
-  message: An aggregated API {{ $labels.name }}/{{ $labels.namespace }} has reported
-    errors. The number of errors have increased for it in the past five minutes. High
-    values indicate that the availability of the service changes too often.
+  message: An aggregated API {{ $labels.name }}/{{ $labels.namespace }} has reported errors. The number of errors have increased for it in the past five minutes. High values indicate that the availability of the service changes too often.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapierrors
 expr: |
   sum by(name, namespace)(increase(aggregator_unavailable_apiservice_count[5m])) > 2
@@ -717,8 +683,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: AggregatedAPIDown
 annotations:
-  message: An aggregated API {{ $labels.name }}/{{ $labels.namespace }} is down. It
-    has not been available at least for the past five minutes.
+  message: An aggregated API {{ $labels.name }}/{{ $labels.namespace }} is down. It has not been available at least for the past five minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
 expr: |
   sum by(name, namespace)(sum_over_time(aggregator_unavailable_apiservice[5m])) > 0
@@ -779,8 +744,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeletTooManyPods
 annotations:
-  message: Kubelet '{{ $labels.node }}' is running at {{ $value | humanizePercentage
-    }} of its Pod capacity.
+  message: Kubelet '{{ $labels.node }}' is running at {{ $value | humanizePercentage }} of its Pod capacity.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubelettoomanypods
 expr: |
   max(max(kubelet_running_pod_count{job="kubelet"}) by(instance) * on(instance) group_left(node) kubelet_node_name{job="kubelet"}) by(node) / max(kube_node_status_capacity_pods{job="kube-state-metrics"} != 1) by(node) > 0.95
@@ -795,8 +759,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeNodeReadinessFlapping
 annotations:
-  message: The readiness status of node {{ $labels.node }} has changed {{ $value }}
-    times in the last 15 minutes.
+  message: The readiness status of node {{ $labels.node }} has changed {{ $value }} times in the last 15 minutes.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodereadinessflapping
 expr: |
   sum(changes(kube_node_status_condition{status="true",condition="Ready"}[15m])) by (node) > 2
@@ -811,8 +774,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeletPlegDurationHigh
 annotations:
-  message: The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration
-    of {{ $value }} seconds on node {{ $labels.node }}.
+  message: The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration of {{ $value }} seconds on node {{ $labels.node }}.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletplegdurationhigh
 expr: |
   node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile{quantile="0.99"} >= 10
@@ -827,8 +789,7 @@ https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md
 {{< code lang="yaml" >}}
 alert: KubeletPodStartUpLatencyHigh
 annotations:
-  message: Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on
-    node {{ $labels.node }}.
+  message: Kubelet Pod startup 99th percentile latency is {{ $value }} seconds on node {{ $labels.node }}.
   runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletpodstartuplatencyhigh
 expr: |
   histogram_quantile(0.99, sum(rate(kubelet_pod_worker_duration_seconds_bucket{job="kubelet"}[5m])) by (instance, le)) * on(instance) group_left(node) kubelet_node_name{job="kubelet"} > 60
@@ -889,7 +850,7 @@ labels:
 ## Recording rules
 
 {{< panel style="warning" >}}
-Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/rules.yaml).
+Complete list of pregenerated recording rules is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/rules.yaml).
 {{< /panel >}}
 
 ### kube-apiserver.rules
@@ -1931,21 +1892,21 @@ record: node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [apiserver](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/apiserver.json)
-- [cluster-total](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/cluster-total.json)
-- [controller-manager](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/controller-manager.json)
-- [k8s-resources-cluster](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-cluster.json)
-- [k8s-resources-namespace](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-namespace.json)
-- [k8s-resources-node](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-node.json)
-- [k8s-resources-pod](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-pod.json)
-- [k8s-resources-workload](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-workload.json)
-- [k8s-resources-workloads-namespace](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/k8s-resources-workloads-namespace.json)
-- [kubelet](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/kubelet.json)
-- [namespace-by-pod](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/namespace-by-pod.json)
-- [namespace-by-workload](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/namespace-by-workload.json)
-- [persistentvolumesusage](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/persistentvolumesusage.json)
-- [pod-total](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/pod-total.json)
-- [proxy](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/proxy.json)
-- [scheduler](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/scheduler.json)
-- [statefulset](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/statefulset.json)
-- [workload-total](https://github.com/cloudalchemy/mixins/blob/master/assets/kubernetes/dashboards/workload-total.json)
+- [apiserver](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/apiserver.json)
+- [cluster-total](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/cluster-total.json)
+- [controller-manager](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/controller-manager.json)
+- [k8s-resources-cluster](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-cluster.json)
+- [k8s-resources-namespace](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-namespace.json)
+- [k8s-resources-node](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-node.json)
+- [k8s-resources-pod](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-pod.json)
+- [k8s-resources-workload](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-workload.json)
+- [k8s-resources-workloads-namespace](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/k8s-resources-workloads-namespace.json)
+- [kubelet](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/kubelet.json)
+- [namespace-by-pod](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/namespace-by-pod.json)
+- [namespace-by-workload](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/namespace-by-workload.json)
+- [persistentvolumesusage](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/persistentvolumesusage.json)
+- [pod-total](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/pod-total.json)
+- [proxy](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/proxy.json)
+- [scheduler](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/scheduler.json)
+- [statefulset](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/statefulset.json)
+- [workload-total](https://github.com/monitoring-mixins/website/blob/master/assets/kubernetes/dashboards/workload-total.json)

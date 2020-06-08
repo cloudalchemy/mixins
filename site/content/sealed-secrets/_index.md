@@ -13,7 +13,7 @@ Jsonnet source code is available at [github.com/bitnami-labs/sealed-secrets](htt
 ## Alerts
 
 {{< panel style="warning" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/sealed-secrets/alerts.yaml).
+Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/sealed-secrets/alerts.yaml).
 {{< /panel >}}
 
 ### sealed-secrets
@@ -35,4 +35,4 @@ labels:
 Following dashboards are generated from mixins and hosted on github:
 
 
-- [sealed-secrets-controller](https://github.com/cloudalchemy/mixins/blob/master/assets/sealed-secrets/dashboards/sealed-secrets-controller.json)
+- [sealed-secrets-controller](https://github.com/monitoring-mixins/website/blob/master/assets/sealed-secrets/dashboards/sealed-secrets-controller.json)

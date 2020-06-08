@@ -13,7 +13,7 @@ Jsonnet source code is available at [github.com/kubernetes/kube-state-metrics](h
 ## Alerts
 
 {{< panel style="warning" >}}
-Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/assets/kube-state-metrics/alerts.yaml).
+Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/assets/kube-state-metrics/alerts.yaml).
 {{< /panel >}}
 
 ### kube-state-metrics
@@ -23,9 +23,7 @@ Complete list of pregenerated alerts is available [here](https://github.com/clou
 {{< code lang="yaml" >}}
 alert: KubeStateMetricsListErrors
 annotations:
-  message: kube-state-metrics is experiencing errors at an elevated rate in list operations.
-    This is likely causing it to not be able to expose metrics about Kubernetes objects
-    correctly or at all.
+  message: kube-state-metrics is experiencing errors at an elevated rate in list operations. This is likely causing it to not be able to expose metrics about Kubernetes objects correctly or at all.
 expr: |
   (sum(rate(kube_state_metrics_list_total{job="kube-state-metrics",result="error"}[5m]))
     /
@@ -41,9 +39,7 @@ labels:
 {{< code lang="yaml" >}}
 alert: KubeStateMetricsWatchErrors
 annotations:
-  message: kube-state-metrics is experiencing errors at an elevated rate in watch
-    operations. This is likely causing it to not be able to expose metrics about Kubernetes
-    objects correctly or at all.
+  message: kube-state-metrics is experiencing errors at an elevated rate in watch operations. This is likely causing it to not be able to expose metrics about Kubernetes objects correctly or at all.
 expr: |
   (sum(rate(kube_state_metrics_watch_total{job="kube-state-metrics",result="error"}[5m]))
     /

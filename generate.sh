@@ -101,14 +101,14 @@ for mixin in $(echo "$CONFIG" | jq -r '.mixins[].name'); do
 	# Alerts
 	if [ -s "$dir/alerts.yaml" ] && [ "$(stat -c%s "$dir/alerts.yaml")" -gt 20 ]; then
 		echo -e "## Alerts\n" >> "$file"
-		panel "warning" "Complete list of pregenerated alerts is available [here](https://github.com/cloudalchemy/mixins/blob/master/$MANIFESTS/$mixin/alerts.yaml)." >> "$file"
+		panel "warning" "Complete list of pregenerated alerts is available [here](https://github.com/monitoring-mixins/website/blob/master/$MANIFESTS/$mixin/alerts.yaml)." >> "$file"
 		parse_rules "$(gojsontoyaml -yamltojson < "$dir/alerts.yaml")" "alert" >> "$file"
 	fi
 
 	# Recording Rules
 	if [ -s "$dir/rules.yaml" ] && [ "$(stat -c%s "$dir/rules.yaml")" -gt 20 ]; then
 		echo -e "## Recording rules\n" >> "$file"
-		panel "warning" "Complete list of pregenerated recording rules is available [here](https://github.com/cloudalchemy/mixins/blob/master/$MANIFESTS/$mixin/rules.yaml)." >> "$file"
+		panel "warning" "Complete list of pregenerated recording rules is available [here](https://github.com/monitoring-mixins/website/blob/master/$MANIFESTS/$mixin/rules.yaml)." >> "$file"
 		parse_rules "$(gojsontoyaml -yamltojson < "$dir/rules.yaml")" "record" >> "$file"
 	fi
 
@@ -117,7 +117,7 @@ for mixin in $(echo "$CONFIG" | jq -r '.mixins[].name'); do
 		echo -e "## Dashboards\nFollowing dashboards are generated from mixins and hosted on github:\n\n" >> "$file"
 		for dashboard in "$dir/dashboards"/*.json; do
 			d="$(basename "$dashboard")"
-			echo "- [${d%.*}](https://github.com/cloudalchemy/mixins/blob/master/$MANIFESTS/$mixin/dashboards/$d)" >> "$file"
+			echo "- [${d%.*}](https://github.com/monitoring-mixins/website/blob/master/$MANIFESTS/$mixin/dashboards/$d)" >> "$file"
 		done
 	fi
 done

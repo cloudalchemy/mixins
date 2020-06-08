@@ -732,7 +732,7 @@
                ],
                "targets": [
                   {
-                     "expr": "count(mixin_pod_workload{cluster=\"$cluster\"}) by (namespace)",
+                     "expr": "sum(kube_pod_owner{cluster=\"$cluster\"}) by (namespace)",
                      "format": "table",
                      "instant": true,
                      "intervalFactor": 2,
@@ -1095,7 +1095,7 @@
                ],
                "targets": [
                   {
-                     "expr": "count(mixin_pod_workload{cluster=\"$cluster\"}) by (namespace)",
+                     "expr": "sum(kube_pod_owner{cluster=\"$cluster\"}) by (namespace)",
                      "format": "table",
                      "instant": true,
                      "intervalFactor": 2,
